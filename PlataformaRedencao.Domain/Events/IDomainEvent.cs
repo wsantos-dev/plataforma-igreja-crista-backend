@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace PlataformaRedencao.Domain.Events
 {
+    /// <summary>
+    /// Marca um evento de domínio.
+    /// </summary>
     public interface IDomainEvent
     {
-        
+        DateTime OccurredOn { get; }
     }
 }

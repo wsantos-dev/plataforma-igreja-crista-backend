@@ -277,10 +277,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("boolean")
-                        .HasColumnName("ativo");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(14)
@@ -311,19 +307,12 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("igreja_id");
 
-                    b.Property<string>("NomePessoa")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
-                        .HasColumnName("sobrenome");
-
                     b.Property<int>("ProfissaoId")
                         .HasColumnType("integer")
                         .HasColumnName("profissao_id");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("text")
+                    b.Property<char>("Sexo")
+                        .HasColumnType("character(1)")
                         .HasColumnName("sexo");
 
                     b.Property<int>("Situacao")
@@ -492,12 +481,40 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                                 .HasForeignKey("MembroId");
                         });
 
+                    b.OwnsOne("PlataformaRedencao.Domain.ValueObjects.NomePessoa", "NomePessoa", b1 =>
+                        {
+                            b1.Property<int>("MembroId")
+                                .HasColumnType("integer");
+
+                            b1.Property<string>("PrimeiroNome")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("character varying(50)")
+                                .HasColumnName("primeiro_nome");
+
+                            b1.Property<string>("SobreNome")
+                                .IsRequired()
+                                .HasMaxLength(100)
+                                .HasColumnType("character varying(100)")
+                                .HasColumnName("sobrenome");
+
+                            b1.HasKey("MembroId");
+
+                            b1.ToTable("membro", "membros");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MembroId");
+                        });
+
                     b.Navigation("Contato")
                         .IsRequired();
 
                     b.Navigation("Endereco");
 
                     b.Navigation("Igreja");
+
+                    b.Navigation("NomePessoa")
+                        .IsRequired();
 
                     b.Navigation("Profissao");
                 });

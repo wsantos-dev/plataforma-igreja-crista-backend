@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "PlataformaRedencao.Application/1.0.0": {
+        "dependencies": {
+          "PlataformaRedencao.Domain": "1.0.0"
+        },
+        "runtime": {
+          "PlataformaRedencao.Application.dll": {}
+        }
+      },
+      "PlataformaRedencao.Domain/1.0.0": {
+        "runtime": {
+          "PlataformaRedencao.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PlataformaRedencao.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PlataformaRedencao.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

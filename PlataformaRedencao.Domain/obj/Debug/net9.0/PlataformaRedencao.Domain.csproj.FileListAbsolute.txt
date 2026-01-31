@@ -1,0 +1,12 @@
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/bin/Debug/net9.0/PlataformaRedencao.Domain.deps.json
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/bin/Debug/net9.0/PlataformaRedencao.Domain.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/bin/Debug/net9.0/PlataformaRedencao.Domain.pdb
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.AssemblyInfoInputs.cache
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.AssemblyInfo.cs
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.csproj.CoreCompileInputs.cache
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.sourcelink.json
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/refint/PlataformaRedencao.Domain.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/PlataformaRedencao.Domain.pdb
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/Debug/net9.0/ref/PlataformaRedencao.Domain.dll

@@ -102,11 +102,6 @@ namespace PlataformaRedencao.Domain.Entities
         public SituacaoMembro Situacao { get; private set; }
 
         /// <summary>
-        /// Indica se o membro está ativo.
-        /// </summary>
-        public bool Ativo { get; private set; }
-
-        /// <summary>
         /// Fábrica para criar um novo membro.
         /// </summary>
         public static Membro Criar(
@@ -136,8 +131,7 @@ namespace PlataformaRedencao.Domain.Entities
                 IgrejaId = igreja.Id,
                 DataAdmissao = dataAdmissao,
                 TipoAdmissao = tipoAdmissao,
-                Situacao = SituacaoMembro.Ativo,
-                Ativo = true
+                Situacao = SituacaoMembro.Ativo
             };
 
             return membro;
@@ -154,7 +148,6 @@ namespace PlataformaRedencao.Domain.Entities
             DataAdmissao = dataAdmissao;
             TipoAdmissao = tipoAdmissao;
             Situacao = situacao;
-            Ativo = situacao == SituacaoMembro.Ativo;
         }
     }
 }

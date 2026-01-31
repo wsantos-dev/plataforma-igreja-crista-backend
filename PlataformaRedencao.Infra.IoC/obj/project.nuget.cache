@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "dgSpecHash": "1q9tOJSiRNs=",
+  "success": true,
+  "projectFilePath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj",
+  "expectedPackageFiles": [
+    "/home/wellington/.nuget/packages/entityframeworkcore.namingconventions/8.0.0/entityframeworkcore.namingconventions.8.0.0.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.entityframeworkcore/9.0.12/microsoft.entityframeworkcore.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.12/microsoft.entityframeworkcore.abstractions.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.12/microsoft.entityframeworkcore.analyzers.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.entityframeworkcore.relational/9.0.0-rc.2.24474.1/microsoft.entityframeworkcore.relational.9.0.0-rc.2.24474.1.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.caching.abstractions/9.0.12/microsoft.extensions.caching.abstractions.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.caching.memory/9.0.12/microsoft.extensions.caching.memory.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.0-rc.2.24473.5/microsoft.extensions.configuration.abstractions.9.0.0-rc.2.24473.5.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.12/microsoft.extensions.dependencyinjection.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.12/microsoft.extensions.dependencyinjection.abstractions.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.logging/9.0.12/microsoft.extensions.logging.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.12/microsoft.extensions.logging.abstractions.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.options/9.0.12/microsoft.extensions.options.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/microsoft.extensions.primitives/9.0.12/microsoft.extensions.primitives.9.0.12.nupkg.sha512",
+    "/home/wellington/.nuget/packages/npgsql/8.0.5/npgsql.8.0.5.nupkg.sha512",
+    "/home/wellington/.nuget/packages/npgsql.entityframeworkcore.postgresql/9.0.0-rc.2/npgsql.entityframeworkcore.postgresql.9.0.0-rc.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: Npgsql.EntityFrameworkCore.PostgreSQL 9.0.0-rc.2 requires Microsoft.EntityFrameworkCore (= 9.0.0-rc.2.24474.1) but version Microsoft.EntityFrameworkCore 9.0.12 was resolved.",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlataformaRedencao.Domain.Entities;
 
-namespace PlataformaRedencao.Infra.Data.EntitiesConfiguration
+namespace PlataformaRedencao.Infra.Data.Mappings
 {
        public class TermoConsentimentoConfiguration : IEntityTypeConfiguration<TermoConsentimento>
        {

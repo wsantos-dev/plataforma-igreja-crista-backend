@@ -1,0 +1,16 @@
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/bin/Debug/net9.0/PlataformaRedencao.Application.deps.json
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/bin/Debug/net9.0/PlataformaRedencao.Application.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/bin/Debug/net9.0/PlataformaRedencao.Application.pdb
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/bin/Debug/net9.0/PlataformaRedencao.Domain.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/bin/Debug/net9.0/PlataformaRedencao.Domain.pdb
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.csproj.AssemblyReference.cache
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.AssemblyInfoInputs.cache
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.AssemblyInfo.cs
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.csproj.CoreCompileInputs.cache
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.sourcelink.json
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/Platafor.C73D31B9.Up2Date
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/refint/PlataformaRedencao.Application.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/PlataformaRedencao.Application.pdb
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/Debug/net9.0/ref/PlataformaRedencao.Application.dll

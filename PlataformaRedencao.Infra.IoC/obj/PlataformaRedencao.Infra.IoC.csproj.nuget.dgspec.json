@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj": {}
+  },
+  "projects": {
+    "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/PlataformaRedencao.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/PlataformaRedencao.Application.csproj",
+        "projectName": "PlataformaRedencao.Application",
+        "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/PlataformaRedencao.Application.csproj",
+        "packagesPath": "/home/wellington/.nuget/packages/",
+        "outputPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/wellington/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj": {
+                "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.113/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj",
+        "projectName": "PlataformaRedencao.Domain",
+        "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj",
+        "packagesPath": "/home/wellington/.nuget/packages/",
+        "outputPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/wellington/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.113/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/PlataformaRedencao.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/PlataformaRedencao.Infra.Data.csproj",
+        "projectName": "PlataformaRedencao.Infra.Data",
+        "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/PlataformaRedencao.Infra.Data.csproj",
+        "packagesPath": "/home/wellington/.nuget/packages/",
+        "outputPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/wellington/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj": {
+                "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "EntityFrameworkCore.NamingConventions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.12, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.0-rc.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.113/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj",
+        "projectName": "PlataformaRedencao.Infra.IoC",
+        "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj",
+        "packagesPath": "/home/wellington/.nuget/packages/",
+        "outputPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.IoC/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/wellington/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/PlataformaRedencao.Application.csproj": {
+                "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Application/PlataformaRedencao.Application.csproj"
+              },
+              "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj": {
+                "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj"
+              },
+              "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/PlataformaRedencao.Infra.Data.csproj": {
+                "projectPath": "/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.Infra.Data/PlataformaRedencao.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.113/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

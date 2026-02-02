@@ -24,7 +24,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador da profissão.</param>
         /// <returns>A entidade <see cref="Profissao"/> ou <c>null</c> caso não exista.</returns>
-        public async Task<Profissao?> ObterPorIdAsync(int? id)
+        public async Task<Profissao?> GetByIdAsync(int? id)
             => await _context.Profissoes
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == id);
@@ -33,7 +33,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todas as profissões registradas.
         /// </summary>
         /// <returns>Uma coleção de <see cref="Profissao"/> (pode estar vazia).</returns>
-        public async Task<IReadOnlyCollection<Profissao?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<Profissao?>> GetAllAsync()
             => await _context.Profissoes
             .AsNoTracking()
             .ToListAsync();
@@ -43,7 +43,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<Profissao> AdicionarAsync(Profissao entidade)
+        public async Task<Profissao> AddAsync(Profissao entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -56,7 +56,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade com as alterações.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<Profissao> AtualizarAsync(Profissao entidade)
+        public async Task<Profissao> UpdateAsync(Profissao entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -69,7 +69,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<Profissao> Excluir(Profissao entidade)
+        public async Task<Profissao> DeleteAsync(Profissao entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

@@ -140,3 +140,10 @@
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.PlataformaRedencao.API.props
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.PlataformaRedencao.API.props
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/obj/Debug/net9.0/staticwebassets.pack.json
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/AutoMapper.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/System.Diagnostics.DiagnosticSource.dll

@@ -12,17 +12,17 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         public TermoConsentimentoRepository(PlataformaRedencaoDbContext context)
             => _context = context;
 
-        public async Task<TermoConsentimento?> ObterPorIdAsync(int? id)
+        public async Task<TermoConsentimento?> GetByIdAsync(int? id)
             => await _context.TermoConsentimentos
             .AsNoTracking()
             .FirstOrDefaultAsync(t => t.Id == id);
 
-        public async Task<IReadOnlyCollection<TermoConsentimento?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<TermoConsentimento?>> GetAllAsync()
             => await _context.TermoConsentimentos
             .AsNoTracking()
             .ToListAsync();
 
-        public async Task<TermoConsentimento> AdicionarAsync(TermoConsentimento entidade)
+        public async Task<TermoConsentimento> AddAsync(TermoConsentimento entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -30,7 +30,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
             return entidade;
         }
 
-        public async Task<TermoConsentimento> AtualizarAsync(TermoConsentimento entidade)
+        public async Task<TermoConsentimento> UpdateAsync(TermoConsentimento entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -38,7 +38,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
             return entidade;
         }
 
-        public async Task<TermoConsentimento> Excluir(TermoConsentimento entidade)
+        public async Task<TermoConsentimento> DeleteAsync(TermoConsentimento entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

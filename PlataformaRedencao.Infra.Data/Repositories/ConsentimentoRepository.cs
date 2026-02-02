@@ -24,7 +24,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador do consentimento.</param>
         /// <returns>A entidade <see cref="Consentimento"/> ou <c>null</c> caso não exista.</returns>
-        public async Task<Consentimento?> ObterPorIdAsync(int? id)
+        public async Task<Consentimento?> GetByIdAsync(int? id)
             => await _context.Consentimentos
             .AsNoTracking()
             .FirstOrDefaultAsync(c => c.Id == id);
@@ -33,7 +33,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todos os consentimentos registrados.
         /// </summary>
         /// <returns>Uma coleção de <see cref="Consentimento"/> (pode estar vazia).</returns>
-        public async Task<IReadOnlyCollection<Consentimento?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<Consentimento?>> GetAllAsync()
             => await _context.Consentimentos
             .AsNoTracking()
             .ToListAsync();
@@ -43,7 +43,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<Consentimento> AdicionarAsync(Consentimento entidade)
+        public async Task<Consentimento> AddAsync(Consentimento entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -56,7 +56,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade com as alterações.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<Consentimento> AtualizarAsync(Consentimento entidade)
+        public async Task<Consentimento> UpdateAsync(Consentimento entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -69,7 +69,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<Consentimento> Excluir(Consentimento entidade)
+        public async Task<Consentimento> DeleteAsync(Consentimento entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

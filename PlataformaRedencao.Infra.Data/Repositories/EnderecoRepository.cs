@@ -24,7 +24,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador do endereço.</param>
         /// <returns>A entidade <see cref="Endereco"/> ou <c>null</c> caso não exista.</returns>
-        public Task<Endereco?> ObterPorIdAsync(int? id)
+        public Task<Endereco?> GetByIdAsync(int? id)
             => _context.Enderecos
             .AsNoTracking()
             .FirstOrDefaultAsync(e => e.Id == id);
@@ -33,7 +33,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todos os endereços registrados.
         /// </summary>
         /// <returns>Uma coleção de <see cref="Endereco"/> (pode estar vazia).</returns>
-        public async Task<IReadOnlyCollection<Endereco?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<Endereco?>> GetAllAsync()
             => await _context.Enderecos
             .AsNoTracking()
             .ToListAsync();
@@ -43,7 +43,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<Endereco> AdicionarAsync(Endereco entidade)
+        public async Task<Endereco> AddAsync(Endereco entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -55,7 +55,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade com as alterações.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<Endereco> AtualizarAsync(Endereco entidade)
+        public async Task<Endereco> UpdateAsync(Endereco entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -67,7 +67,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<Endereco> Excluir(Endereco entidade)
+        public async Task<Endereco> DeleteAsync(Endereco entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

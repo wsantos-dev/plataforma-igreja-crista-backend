@@ -24,7 +24,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador da assinatura eletrônica.</param>
         /// <returns>A entidade <see cref="AssinaturaEletronica"/> ou <c>null</c> caso não exista.</returns>
-        public async Task<AssinaturaEletronica?> ObterPorIdAsync(int? id)
+        public async Task<AssinaturaEletronica?> GetByIdAsync(int? id)
             => await _context.AssinaturaEletronicas
             .AsNoTracking()
             .FirstOrDefaultAsync(a => a.Id == id);
@@ -33,7 +33,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todas as assinaturas eletrônicas registradas.
         /// </summary>
         /// <returns>Uma coleção de <see cref="AssinaturaEletronica"/> (pode estar vazia).</returns>
-        public async Task<IReadOnlyCollection<AssinaturaEletronica?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<AssinaturaEletronica?>> GetAllAsync()
             => await _context.AssinaturaEletronicas
             .AsNoTracking()
             .ToListAsync();
@@ -43,7 +43,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<AssinaturaEletronica> AdicionarAsync(AssinaturaEletronica entidade)
+        public async Task<AssinaturaEletronica> AddAsync(AssinaturaEletronica entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -56,7 +56,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade com as alterações.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<AssinaturaEletronica> AtualizarAsync(AssinaturaEletronica entidade)
+        public async Task<AssinaturaEletronica> UpdateAsync(AssinaturaEletronica entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -69,7 +69,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<AssinaturaEletronica> Excluir(AssinaturaEletronica entidade)
+        public async Task<AssinaturaEletronica> DeleteAsync(AssinaturaEletronica entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

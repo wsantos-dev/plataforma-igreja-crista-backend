@@ -22,91 +22,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.AssinaturaEletronica", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Certificado")
-                        .HasMaxLength(4000)
-                        .HasColumnType("character varying(4000)")
-                        .HasColumnName("certificado");
-
-                    b.Property<int>("ConsentimentoId")
-                        .HasColumnType("integer")
-                        .HasColumnName("consentimento_id");
-
-                    b.Property<DateTime>("DataAssinatura")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("data_assinatura");
-
-                    b.Property<string>("HashDocumento")
-                        .HasMaxLength(4000)
-                        .HasColumnType("character varying(4000)")
-                        .HasColumnName("hash_documento");
-
-                    b.Property<string>("IdentificadorAssinatura")
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
-                        .HasColumnName("identificador_assinatura");
-
-                    b.Property<int>("Provedor")
-                        .HasColumnType("integer")
-                        .HasColumnName("provedor");
-
-                    b.Property<int>("Tipo")
-                        .HasColumnType("integer")
-                        .HasColumnName("tipo");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConsentimentoId");
-
-                    b.ToTable("assinatura_eletronica", "membros");
-                });
-
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Consentimento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DataConcessao")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("data_concessao");
-
-                    b.Property<DateTime?>("DataRevogacao")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("data_revogacao");
-
-                    b.Property<int>("MembroId")
-                        .HasColumnType("integer")
-                        .HasColumnName("membro_id");
-
-                    b.Property<int>("TermoConsentimentoId")
-                        .HasColumnType("integer")
-                        .HasColumnName("termo_consentimento_id");
-
-                    b.Property<int>("Tipo")
-                        .HasColumnType("integer")
-                        .HasColumnName("tipo");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MembroId");
-
-                    b.HasIndex("TermoConsentimentoId");
-
-                    b.ToTable("consentimento", "membros");
-                });
-
             modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Endereco", b =>
                 {
                     b.Property<int>("Id")
@@ -277,10 +192,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("boolean")
-                        .HasColumnName("ativo");
-
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(14)
@@ -311,19 +222,12 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("igreja_id");
 
-                    b.Property<string>("NomePessoa")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
-                        .HasColumnName("sobrenome");
-
                     b.Property<int>("ProfissaoId")
                         .HasColumnType("integer")
                         .HasColumnName("profissao_id");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("text")
+                    b.Property<char>("Sexo")
+                        .HasColumnType("character(1)")
                         .HasColumnName("sexo");
 
                     b.Property<int>("Situacao")
@@ -368,74 +272,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("profissao", "membros");
-                });
-
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.TermoConsentimento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Conteudo")
-                        .IsRequired()
-                        .HasMaxLength(4000)
-                        .HasColumnType("character varying(4000)")
-                        .HasColumnName("conteudo");
-
-                    b.Property<int>("Tipo")
-                        .HasColumnType("integer")
-                        .HasColumnName("tipo");
-
-                    b.Property<string>("Versao")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
-                        .HasColumnName("versao");
-
-                    b.Property<DateTime?>("VigenciaFim")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("vigencia_fim");
-
-                    b.Property<DateTime>("VigenciaInicio")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("vigencia_inicio");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("termo_consentimento", "membros");
-                });
-
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.AssinaturaEletronica", b =>
-                {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Consentimento", "Consentimento")
-                        .WithMany()
-                        .HasForeignKey("ConsentimentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Consentimento");
-                });
-
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Consentimento", b =>
-                {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Membro", "Membro")
-                        .WithMany()
-                        .HasForeignKey("MembroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PlataformaRedencao.Domain.Entities.TermoConsentimento", "TermoConsentimento")
-                        .WithMany()
-                        .HasForeignKey("TermoConsentimentoId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Membro");
-
-                    b.Navigation("TermoConsentimento");
                 });
 
             modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Igreja", b =>
@@ -492,12 +328,40 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                                 .HasForeignKey("MembroId");
                         });
 
+                    b.OwnsOne("PlataformaRedencao.Domain.ValueObjects.NomePessoa", "NomePessoa", b1 =>
+                        {
+                            b1.Property<int>("MembroId")
+                                .HasColumnType("integer");
+
+                            b1.Property<string>("PrimeiroNome")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("character varying(50)")
+                                .HasColumnName("primeiro_nome");
+
+                            b1.Property<string>("SobreNome")
+                                .IsRequired()
+                                .HasMaxLength(100)
+                                .HasColumnType("character varying(100)")
+                                .HasColumnName("sobrenome");
+
+                            b1.HasKey("MembroId");
+
+                            b1.ToTable("membro", "membros");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MembroId");
+                        });
+
                     b.Navigation("Contato")
                         .IsRequired();
 
                     b.Navigation("Endereco");
 
                     b.Navigation("Igreja");
+
+                    b.Navigation("NomePessoa")
+                        .IsRequired();
 
                     b.Navigation("Profissao");
                 });

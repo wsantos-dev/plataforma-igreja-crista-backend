@@ -23,7 +23,7 @@ namespace PlataformaRedencao.Domain.ValueObjects
         /// 
         /// Este código é utilizado para persistência e integração entre camadas.
         /// </summary>
-        public string Codigo { get; }
+        public char Codigo { get; }
 
         /// <summary>
         /// Descrição textual do sexo, destinada a uso semântico
@@ -37,7 +37,7 @@ namespace PlataformaRedencao.Domain.ValueObjects
         /// </summary>
         /// <param name="codigo">Código simbólico do sexo.</param>
         /// <param name="descricao">Descrição textual do sexo.</param>
-        private Sexo(string codigo, string descricao)
+        private Sexo(char codigo, string descricao)
         {
             Codigo = codigo;
             Descricao = descricao;
@@ -46,12 +46,12 @@ namespace PlataformaRedencao.Domain.ValueObjects
         /// <summary>
         /// Representa o sexo masculino.
         /// </summary>
-        public static readonly Sexo Masculino = new("M", "Masculino");
+        public static readonly Sexo Masculino = new('M', "Masculino");
 
         /// <summary>
         /// Representa o sexo feminino.
         /// </summary>
-        public static readonly Sexo Feminino = new("F", "Feminino");
+        public static readonly Sexo Feminino = new('F', "Feminino");
 
         /// <summary>
         /// Cria uma instância de <see cref="Sexo"/> a partir de um código simbólico.
@@ -61,18 +61,20 @@ namespace PlataformaRedencao.Domain.ValueObjects
         /// <exception cref="ArgumentException">
         /// Lançada quando o código é nulo, vazio ou não corresponde a um valor válido do domínio.
         /// </exception>
-        public static Sexo FromCodigo(string codigo)
+
+        public static Sexo FromCodigo(char codigo)
         {
-            if (string.IsNullOrWhiteSpace(codigo))
+            if (char.IsWhiteSpace(codigo))
                 throw new ArgumentException("Código do sexo é obrigatório.");
 
-            return codigo.Trim().ToUpper() switch
+            return char.ToUpperInvariant(codigo) switch
             {
-                "M" => Masculino,
-                "F" => Feminino,
-                _ => throw new ArgumentException($"Código de sexo inválido: {codigo}")
+                'M' => Sexo.Masculino,
+                'F' => Sexo.Feminino,
+                _ => throw new ArgumentException($"Código de sexo inválido: '{codigo}'.")
             };
         }
+
 
         /// <summary>
         /// Determina se o objeto especificado é igual ao objeto atual.

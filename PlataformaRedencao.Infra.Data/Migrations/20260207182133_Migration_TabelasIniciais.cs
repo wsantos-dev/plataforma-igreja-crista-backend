@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PlataformaRedencao.Infra.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeirasEntidades : Migration
+    public partial class Migration_TabelasIniciais : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,24 +57,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "termo_consentimento",
-                schema: "membros",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    tipo = table.Column<int>(type: "integer", nullable: false),
-                    conteudo = table.Column<string>(type: "character varying(4000)", maxLength: 4000, nullable: false),
-                    versao = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    vigencia_inicio = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    vigencia_fim = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_termo_consentimento", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "igreja",
                 schema: "membros",
                 columns: table => new
@@ -114,9 +96,10 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     cpf = table.Column<string>(type: "character varying(14)", maxLength: 14, nullable: false),
-                    sobrenome = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    primeiro_nome = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    sobrenome = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     data_nascimento = table.Column<DateOnly>(type: "date", nullable: false),
-                    sexo = table.Column<string>(type: "text", nullable: false),
+                    sexo = table.Column<char>(type: "character(1)", nullable: false),
                     email = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     telefone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
                     estado_civil = table.Column<int>(type: "integer", nullable: false),
@@ -126,8 +109,7 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                     igreja_id = table.Column<int>(type: "integer", nullable: false),
                     data_admissao = table.Column<DateOnly>(type: "date", nullable: false),
                     tipo_admissao = table.Column<int>(type: "integer", nullable: false),
-                    situacao = table.Column<int>(type: "integer", nullable: false),
-                    ativo = table.Column<bool>(type: "boolean", nullable: false)
+                    situacao = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -154,83 +136,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "consentimento",
-                schema: "membros",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    membro_id = table.Column<int>(type: "integer", nullable: false),
-                    termo_consentimento_id = table.Column<int>(type: "integer", nullable: false),
-                    tipo = table.Column<int>(type: "integer", nullable: false),
-                    data_concessao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    data_revogacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_consentimento", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_consentimento_membro_membro_id",
-                        column: x => x.membro_id,
-                        principalSchema: "membros",
-                        principalTable: "membro",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_consentimento_termo_consentimento_termo_consentimento_id",
-                        column: x => x.termo_consentimento_id,
-                        principalSchema: "membros",
-                        principalTable: "termo_consentimento",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "assinatura_eletronica",
-                schema: "membros",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    consentimento_id = table.Column<int>(type: "integer", nullable: false),
-                    provedor = table.Column<int>(type: "integer", nullable: false),
-                    tipo = table.Column<int>(type: "integer", nullable: false),
-                    data_assinatura = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    hash_documento = table.Column<string>(type: "character varying(4000)", maxLength: 4000, nullable: true),
-                    identificador_assinatura = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
-                    certificado = table.Column<string>(type: "character varying(4000)", maxLength: 4000, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_assinatura_eletronica", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_assinatura_eletronica_consentimento_consentimento_id",
-                        column: x => x.consentimento_id,
-                        principalSchema: "membros",
-                        principalTable: "consentimento",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_assinatura_eletronica_consentimento_id",
-                schema: "membros",
-                table: "assinatura_eletronica",
-                column: "consentimento_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_consentimento_membro_id",
-                schema: "membros",
-                table: "consentimento",
-                column: "membro_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_consentimento_termo_consentimento_id",
-                schema: "membros",
-                table: "consentimento",
-                column: "termo_consentimento_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_endereco_atual",
@@ -273,19 +178,7 @@ namespace PlataformaRedencao.Infra.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "assinatura_eletronica",
-                schema: "membros");
-
-            migrationBuilder.DropTable(
-                name: "consentimento",
-                schema: "membros");
-
-            migrationBuilder.DropTable(
                 name: "membro",
-                schema: "membros");
-
-            migrationBuilder.DropTable(
-                name: "termo_consentimento",
                 schema: "membros");
 
             migrationBuilder.DropTable(

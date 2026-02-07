@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlataformaRedencao.Domain.Entities;
 
+namespace PlataformaRedencao.Infra.Data.Mappings;
+
 public class IgrejaConfiguration : IEntityTypeConfiguration<Igreja>
 {
     public void Configure(EntityTypeBuilder<Igreja> builder)

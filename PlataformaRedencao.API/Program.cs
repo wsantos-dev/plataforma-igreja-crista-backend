@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using PlataformaRedencao.Infra.Data.Context;
+using PlataformaRedencao.Infra.IoC;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Injeção de Dependência
+builder.Services.AddInfrastructure(builder.Configuration);
 
 // Adiciona suporte ao Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

@@ -22,22 +22,18 @@ namespace PlataformaRedencao.Infra.Data.EntitiesConfiguration
                             .HasMaxLength(14)
                             .IsRequired();
 
-                     builder.Property(m => m.NomePessoa)
+                     builder.OwnsOne(m => m.NomePessoa, np =>
+                     {
+                            np.Property(p => p.PrimeiroNome)
                             .HasColumnName("primeiro_nome")
-                            .HasConversion(
-                                   v => v.PrimeiroNome,
-                                   v => new NomePessoa(v, string.Empty))
-                            .HasMaxLength(200)
+                            .HasMaxLength(50)
                             .IsRequired();
 
-                     builder.Property(m => m.NomePessoa)
-                           .HasColumnName("sobrenome")
-                           .HasConversion(
-                                  v => v.SobreNome,
-                                  v => new NomePessoa(v, string.Empty))
-                           .HasMaxLength(200)
-                           .IsRequired();
-
+                            np.Property(p => p.SobreNome)
+                            .HasColumnName("sobrenome")
+                            .HasMaxLength(100)
+                            .IsRequired();
+                     });
                      builder.Property(m => m.DataNascimento)
                             .HasColumnName("data_nascimento")
                             .IsRequired();
@@ -86,10 +82,6 @@ namespace PlataformaRedencao.Infra.Data.EntitiesConfiguration
 
                      builder.Property(m => m.Situacao)
                             .HasColumnName("situacao")
-                            .IsRequired();
-
-                     builder.Property(m => m.Ativo)
-                            .HasColumnName("ativo")
                             .IsRequired();
 
                      // Chaves estrangeiras

@@ -22,6 +22,7 @@ namespace PlataformaRedencao.Domain.Enums
         PosGraduacao = 7,
         [Description("Mestrado")]
         Mestrado = 8,
+
         [Description("Doutorado")]
         Doutorado = 9
     }

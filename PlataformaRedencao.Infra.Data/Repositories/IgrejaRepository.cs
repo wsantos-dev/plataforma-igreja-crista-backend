@@ -26,7 +26,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador da igreja (pode ser nulo).</param>
         /// <returns>A entidade <see cref="Igreja"/> ou <c>null</c> caso não exista.</returns>
-        public async Task<Igreja?> ObterPorIdAsync(int? id)
+        public async Task<Igreja?> GetByIdAsync(int? id)
             => await _context.Igrejas
             .AsNoTracking()
             .FirstOrDefaultAsync(i => i.Id == id);
@@ -35,7 +35,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todas as igrejas.
         /// </summary>
         /// <returns>Uma coleção somente-leitura com todas as igrejas.</returns>
-        public async Task<IReadOnlyCollection<Igreja?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<Igreja?>> GetAllAsync()
             => await _context.Igrejas
             .AsNoTracking()
             .ToListAsync();
@@ -66,7 +66,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Igreja"/> a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<Igreja> AdicionarAsync(Igreja entidade)
+        public async Task<Igreja> AddAsync(Igreja entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -79,7 +79,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Igreja"/> a ser atualizada.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<Igreja> AtualizarAsync(Igreja entidade)
+        public async Task<Igreja> UpdateAsync(Igreja entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -92,7 +92,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Igreja"/> a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<Igreja> Excluir(Igreja entidade)
+        public async Task<Igreja> DeleteAsync(Igreja entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

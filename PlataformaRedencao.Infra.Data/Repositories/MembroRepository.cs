@@ -27,7 +27,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="id">Identificador do membro (pode ser nulo).</param>
         /// <returns>Uma tarefa que contém o membro encontrado ou <c>null</c> se não encontrado.</returns>
-        public async Task<Membro?> ObterPorIdAsync(int? id)
+        public async Task<Membro?> GetByIdAsync(int? id)
             => await _context.Membros
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -47,7 +47,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// Obtém todos os membros.
         /// </summary>
         /// <returns>Uma tarefa que contém uma coleção somente-leitura com todos os membros.</returns>
-        public async Task<IReadOnlyCollection<Membro?>> ObterTodosAsync()
+        public async Task<IReadOnlyCollection<Membro?>> GetAllAsync()
             => await _context.Membros
                 .AsNoTracking()
                 .ToListAsync();
@@ -57,7 +57,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Membro"/> a ser adicionada.</param>
         /// <returns>A entidade adicionada com possíveis valores gerados (ex.: Id).</returns>
-        public async Task<Membro> AdicionarAsync(Membro entidade)
+        public async Task<Membro> AddAsync(Membro entidade)
         {
             _context.Add(entidade);
             await _context.SaveChangesAsync();
@@ -70,7 +70,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Membro"/> a ser atualizada.</param>
         /// <returns>A entidade atualizada.</returns>
-        public async Task<Membro> AtualizarAsync(Membro entidade)
+        public async Task<Membro> UpdateAsync(Membro entidade)
         {
             _context.Update(entidade);
             await _context.SaveChangesAsync();
@@ -83,7 +83,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// </summary>
         /// <param name="entidade">Entidade <see cref="Membro"/> a ser removida.</param>
         /// <returns>A entidade removida.</returns>
-        public async Task<Membro> Excluir(Membro entidade)
+        public async Task<Membro> DeleteAsync(Membro entidade)
         {
             _context.Remove(entidade);
             await _context.SaveChangesAsync();

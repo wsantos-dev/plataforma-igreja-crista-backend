@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlataformaRedencao.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dd35787995cee8e8ff4420da059ac95b054ad6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dc0c13961acef452855d453f50e7091b03e7b04")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlataformaRedencao.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlataformaRedencao.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

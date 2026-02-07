@@ -6,7 +6,6 @@
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/PlataformaRedencao.API.runtimeconfig.json
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/PlataformaRedencao.API.dll
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/PlataformaRedencao.API.pdb
-/home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/EFCore.NamingConventions.dll
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Humanizer.dll
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/wellington/Projetos/plataforma-redencao-api/PlataformaRedencao.API/bin/Debug/net9.0/Microsoft.Build.Locator.dll

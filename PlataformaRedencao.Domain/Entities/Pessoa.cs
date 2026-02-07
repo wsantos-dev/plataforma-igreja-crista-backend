@@ -121,18 +121,7 @@ namespace PlataformaRedencao.Domain.Entities
         public IReadOnlyCollection<Documento> Documentos =>
             _documentos.ToList().AsReadOnly();
 
-        /// <summary>
-        /// Histórico de consentimentos concedidos pela pessoa.
-        /// </summary>
-        /// <remarks>
-        /// Inclui consentimentos ativos e revogados.
-        /// Nunca deve ser apagado ou sobrescrito.
-        /// </remarks>
-        public IReadOnlyCollection<Consentimento> Consentimentos =>
-            _consentimentos.ToList().AsReadOnly();
-
         private readonly ICollection<Documento> _documentos = new HashSet<Documento>();
-        private readonly ICollection<Consentimento> _consentimentos = new HashSet<Consentimento>();
 
         /// <summary>
         /// Cria uma nova instância de <see cref="Pessoa"/> com dados essenciais.

@@ -14,14 +14,10 @@ namespace PlataformaRedencao.Infra.Data.Context
         public DbSet<Membro> Membros { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Profissao> Profissoes { get; set; }
-        public DbSet<TermoConsentimento> TermoConsentimentos { get; set; }
-        public DbSet<Consentimento> Consentimentos { get; set; }
-        public DbSet<AssinaturaEletronica> AssinaturaEletronicas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
 
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(PlataformaRedencaoDbContext).Assembly

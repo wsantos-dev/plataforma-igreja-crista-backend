@@ -2,20 +2,6 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "EntityFrameworkCore.NamingConventions/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0/EFCore.NamingConventions.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0/EFCore.NamingConventions.dll": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1043,8 +1029,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "EntityFrameworkCore.NamingConventions": "8.0.0",
-          "Microsoft.EntityFrameworkCore": "9.0.12",
+          "Microsoft.EntityFrameworkCore": "9.0.0-rc.2.24474.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.0-rc.2",
           "PlataformaRedencao.Domain": "1.0.0"
         },
@@ -1073,19 +1058,6 @@
     }
   },
   "libraries": {
-    "EntityFrameworkCore.NamingConventions/8.0.0": {
-      "sha512": "VWL8W2C+sWEvr1bu3reHcvxwSUfUDrRb5ZUaSSPSgT4JZ5rtlWVtyp0oQSSoMVByChZ2Q5NVkQ6n9hQDw5Rf4g==",
-      "type": "package",
-      "path": "entityframeworkcore.namingconventions/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "entityframeworkcore.namingconventions.8.0.0.nupkg.sha512",
-        "entityframeworkcore.namingconventions.nuspec",
-        "lib/net8.0/EFCore.NamingConventions.dll"
-      ]
-    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",

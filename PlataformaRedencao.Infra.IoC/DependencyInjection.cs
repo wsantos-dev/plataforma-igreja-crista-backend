@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Npgsql.Replication;
 using PlataformaRedencao.Domain.Interfaces;
 using PlataformaRedencao.Infra.Data.Context;
 using PlataformaRedencao.Infra.Data.Repositories;
@@ -21,12 +19,9 @@ public static class DependencyInjection
                 .Assembly.FullName)));
 
         services.AddScoped<IIgrejaRepository, IgrejaRepository>();
-        services.AddScoped<IMembroRepository, IMembroRepository>();
+        services.AddScoped<IMembroRepository, MembroRepository>();
         services.AddScoped<IProfissaoRepository, ProfissaoRepository>();
-        services.AddScoped<IConsentimentoRepository, ConsentimentoRepository>();
-        services.AddScoped<ITermoConsentimentoRepository, TermoConsentimentoRepository>();
         services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-        services.AddScoped<IAssinaturaEletronicaRepository, AssinaturaEletronicaRepository>();
 
         return services;
     }

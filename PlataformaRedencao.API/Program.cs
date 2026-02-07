@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PlataformaRedencao.Infra.Data.Context;
 using PlataformaRedencao.Infra.IoC;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 

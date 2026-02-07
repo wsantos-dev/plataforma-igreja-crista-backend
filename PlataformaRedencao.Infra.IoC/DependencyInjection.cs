@@ -6,6 +6,7 @@ using PlataformaRedencao.Application.Interfaces;
 using PlataformaRedencao.Application.Services;
 using PlataformaRedencao.Infra.Data.Context;
 using PlataformaRedencao.Infra.Data.Repositories;
+using AutoMapper;
 
 namespace PlataformaRedencao.Infra.IoC;
 
@@ -20,16 +21,25 @@ public static class DependencyInjection
                 p => p.MigrationsAssembly(typeof(PlataformaRedencaoDbContext)
                 .Assembly.FullName)));
 
+        // Repositories
+
         services.AddScoped<IIgrejaRepository, IgrejaRepository>();
         services.AddScoped<IMembroRepository, MembroRepository>();
         services.AddScoped<IProfissaoRepository, ProfissaoRepository>();
         services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+
+        // AutoMapper
+        services.AddAutoMapper(typeof(DependencyInjection).Assembly);
 
         // Application services
         services.AddScoped<IIgrejaService, IgrejaService>();
         services.AddScoped<IMembroService, MembroService>();
         services.AddScoped<IProfissaoService, ProfissaoService>();
         services.AddScoped<IEnderecoService, EnderecoService>();
+
+
+
+
 
         return services;
     }

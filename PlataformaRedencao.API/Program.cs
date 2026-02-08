@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using PlataformaRedencao.API.Endpoints;
 using PlataformaRedencao.Infra.Data.Context;
 using PlataformaRedencao.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Injeção de Dependência
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -12,12 +14,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<PlataformaRedencaoDbContext>(options =>
+/*builder.Services.AddDbContext<PlataformaRedencaoDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("PostgreSql")
     )
-);
+);*/
 
+// erros globais
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -30,29 +34,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.UseExceptionHandler();
+app.MapErrorEndpoints();
+app.MapAuthEndpoints();
 
 app.Run();
 
-// Record que representa a previsão do tempo
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

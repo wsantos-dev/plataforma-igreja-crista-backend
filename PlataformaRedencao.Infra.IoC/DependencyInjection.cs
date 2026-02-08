@@ -6,7 +6,6 @@ using PlataformaRedencao.Application.Interfaces;
 using PlataformaRedencao.Application.Services;
 using PlataformaRedencao.Infra.Data.Context;
 using PlataformaRedencao.Infra.Data.Repositories;
-using AutoMapper;
 using PlataformaRedencao.Application.Seguranca;
 
 namespace PlataformaRedencao.Infra.IoC;
@@ -24,6 +23,7 @@ public static class DependencyInjection
 
         // Segurança
         services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
+        services.AddScoped<AuthService>();
 
         // Repositories
 
@@ -31,6 +31,8 @@ public static class DependencyInjection
         services.AddScoped<IMembroRepository, MembroRepository>();
         services.AddScoped<IProfissaoRepository, ProfissaoRepository>();
         services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
 
         // AutoMapper
         services.AddAutoMapper(typeof(DependencyInjection).Assembly);

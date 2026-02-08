@@ -20,7 +20,6 @@ namespace PlataformaRedencao.Infra.Data.Context
         {
             base.OnModelCreating(modelBuilder);
 
-
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(PlataformaRedencaoDbContext).Assembly
             );

@@ -15,7 +15,7 @@ public sealed class Usuario : BaseEntity
         Email = email;
         SenhaHash = senhaHash;
         IsAtivo = true;
-        CriadoEm = DateTime.UtcNow;
+        CriadoEm = DateTime.Now;
     }
     public void Desativar()
     {

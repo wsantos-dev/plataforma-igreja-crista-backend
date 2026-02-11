@@ -16,6 +16,8 @@ namespace PlataformaRedencao.Infra.Data.Context
         public DbSet<Profissao> Profissoes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

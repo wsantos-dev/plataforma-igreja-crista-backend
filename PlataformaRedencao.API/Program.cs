@@ -1,9 +1,8 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PlataformaRedencao.API.Endpoints;
-using PlataformaRedencao.Infra.Data.Context;
+using PlataformaRedencao.Domain.Enums;
 using PlataformaRedencao.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +39,30 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole("Admin"));
+
+    options.AddPolicy("PastorOnly", policy =>
+        policy.RequireRole(Roles.Pastor.ToString()));
+
+    options.AddPolicy("TreasurerOnly", policy =>
+        policy.RequireRole(Roles.Treasurer.ToString()));
+
+    options.AddPolicy("FinanceCommitteeOnly", policy =>
+        policy.RequireRole(Roles.FinanceCommittee.ToString()));
+
+    options.AddPolicy("LeaderMinistrieOnly", policy =>
+        policy.RequireRole(Roles.LeaderMinistrie.ToString()));
+
+    options.AddPolicy("MemberWithMinistrieOnly", policy =>
+        policy.RequireRole(Roles.MemberWithMinistrie.ToString()));
+
+    options.AddPolicy("MemberWithoutMinistrieOnly", policy =>
+        policy.RequireRole(Roles.MemberWithoutMinistrie.ToString()));
+});
+
 
 // Swagger/OpenAPI support
 builder.Services.AddEndpointsApiExplorer();
@@ -93,6 +115,7 @@ app.UseAuthorization();
 app.UseExceptionHandler();
 app.MapErrorEndpoints();
 app.MapAuthEndpoints();
+app.MapAdminEndpoints();
 
 app.Run();
 

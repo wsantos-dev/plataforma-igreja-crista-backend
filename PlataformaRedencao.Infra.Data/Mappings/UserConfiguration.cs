@@ -25,6 +25,11 @@ namespace PlataformaRedencao.Infra.Data.Mappings
                             .HasMaxLength(255)
                             .IsRequired();
 
+                     builder.Property(u => u.Role)
+                            .HasMaxLength(50)
+                            .HasColumnName("role")
+                            .IsRequired();
+
                      builder.Property(u => u.IsActive)
                             .HasColumnName("active")
                             .IsRequired();

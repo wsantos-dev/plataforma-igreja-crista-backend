@@ -8,15 +8,15 @@ namespace PlataformaRedencao.Infra.Data.Mappings
        {
               public void Configure(EntityTypeBuilder<User> builder)
               {
-                     builder.ToTable("usuario", "seguranca");
+                     builder.ToTable("user", "security");
 
                      builder.HasKey(u => u.Id);
 
                      builder.Property(i => i.Id)
                             .HasColumnName("id");
 
-                     builder.Property(u => u.Email)
-                            .HasColumnName("email")
+                     builder.Property(u => u.EmailAddress)
+                            .HasColumnName("email_address")
                             .HasMaxLength(150)
                             .IsRequired();
 

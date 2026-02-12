@@ -26,7 +26,7 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         public async Task<User?> GetByEmailAsync(string email)
             => await _context.Users
             .AsNoTracking()
-            .FirstOrDefaultAsync(u => u.Email == email);
+            .FirstOrDefaultAsync(u => u.EmailAddress == email);
 
         public async Task<User> AddAsync(User entidade)
         {

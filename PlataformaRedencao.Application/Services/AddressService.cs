@@ -7,7 +7,7 @@ using PlataformaRedencao.Domain.Interfaces;
 namespace PlataformaRedencao.Application.Services
 {
     /// <summary>
-    /// Implementação do serviço para operações relacionadas a endereços.
+    /// Implementation of the service for address-related operations.
     /// </summary>
     public class AddressService : IAddressService
     {
@@ -15,7 +15,7 @@ namespace PlataformaRedencao.Application.Services
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Inicializa uma nova instância de <see cref="AddressService"/>.
+        /// Initializes a new instance of <see cref="AddressService"/>.
         /// </summary>
         public AddressService(IAddressRepository enderecoRepository, IMapper mapper)
         {
@@ -24,7 +24,7 @@ namespace PlataformaRedencao.Application.Services
         }
 
         /// <summary>
-        /// Obtém todos os endereços.
+        /// Gets all addresses.
         /// </summary>
         public async Task<IReadOnlyCollection<AddressDTO>> GetAddressAsync()
         {
@@ -33,7 +33,7 @@ namespace PlataformaRedencao.Application.Services
         }
 
         /// <summary>
-        /// Obtém um endereço pelo identificador.
+        /// Gets an address by id.
         /// </summary>
         public async Task<AddressDTO> GetById(int? id)
         {
@@ -42,7 +42,7 @@ namespace PlataformaRedencao.Application.Services
         }
 
         /// <summary>
-        /// Adiciona um novo endereço.
+        /// Adds a new address.
         /// </summary>
         public async Task Add(AddressDTO AddressDTO)
         {
@@ -51,7 +51,7 @@ namespace PlataformaRedencao.Application.Services
         }
 
         /// <summary>
-        /// Atualiza um endereço existente.
+        /// Updates an existing address.
         /// </summary>
         public async Task Update(AddressDTO AddressDTO)
         {
@@ -60,7 +60,7 @@ namespace PlataformaRedencao.Application.Services
         }
 
         /// <summary>
-        /// Remove um endereço pelo identificador.
+        /// Removes an address by id.
         /// </summary>
         public async Task Remove(int? id)
         {

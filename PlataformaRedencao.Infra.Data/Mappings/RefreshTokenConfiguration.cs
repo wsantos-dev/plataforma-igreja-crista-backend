@@ -4,32 +4,50 @@ using PlataformaRedencao.Domain.Entities;
 
 namespace PlataformaRedencao.Infra.Data.Mappings
 {
-    public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
-    {
-        public void Configure(EntityTypeBuilder<RefreshToken> builder)
-        {
-            builder.ToTable("refresh_token", "seguranca");
+       /// <summary>
+       /// Entity Framework Core configuration for the <see cref="RefreshToken"/> entity.
+       /// Defines table mapping, column specifications, and constraints related to
+       /// authentication token persistence.
+       /// </summary>
+       public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
+       {
+              /// <summary>
+              /// Configures the <see cref="RefreshToken"/> entity mapping using the provided builder.
+              /// </summary>
+              /// <param name="builder">
+              /// The <see cref="EntityTypeBuilder{RefreshToken}"/> used to configure the entity.
+              /// </param>
+              public void Configure(EntityTypeBuilder<RefreshToken> builder)
+              {
+                     // Maps the entity to the "refresh_token" table within the "security" schema.
+                     builder.ToTable("refresh_token", "security");
 
-            builder.HasKey(r => r.Id);
-            builder.Property(r => r.Id)
-                   .HasColumnName("id");
+                     // Primary Key configuration.
+                     builder.HasKey(r => r.Id);
 
-            builder.Property(r => r.UsuarioId)
-                   .HasColumnName("usuario_id")
-                   .IsRequired();
+                     builder.Property(r => r.Id)
+                            .HasColumnName("id");
 
-            builder.Property(r => r.Token)
-                   .HasColumnName("token")
-                   .IsRequired();
+                     // Foreign key reference to the associated user.
+                     builder.Property(r => r.UsuarioId)
+                            .HasColumnName("usuario_id")
+                            .IsRequired();
 
-            builder.Property(r => r.ExpiresAt)
-                   .HasColumnName("expires_at")
-                   .HasColumnType("timestamptz")
-                   .IsRequired();
+                     // The refresh token string (typically a secure random value).
+                     builder.Property(r => r.Token)
+                            .HasColumnName("token")
+                            .IsRequired();
 
-            builder.Property(r => r.Revoked)
-                   .HasColumnName("revoked")
-                   .IsRequired();
-        }
-    }
+                     // Expiration timestamp (stored as PostgreSQL timestamptz).
+                     builder.Property(r => r.ExpiresAt)
+                            .HasColumnName("expires_at")
+                            .HasColumnType("timestamptz")
+                            .IsRequired();
+
+                     // Indicates whether the token has been revoked.
+                     builder.Property(r => r.Revoked)
+                            .HasColumnName("revoked")
+                            .IsRequired();
+              }
+       }
 }

@@ -1,6 +1,5 @@
-using Domain.ValueObjects;
-using PlataformaRedencao.Domain.Enums;
 using PlataformaRedencao.Domain.ValueObjects;
+using PlataformaRedencao.Domain.Enums;
 
 namespace PlataformaRedencao.Domain.Entities
 {

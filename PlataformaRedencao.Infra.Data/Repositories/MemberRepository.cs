@@ -55,40 +55,40 @@ namespace PlataformaRedencao.Infra.Data.Repositories
         /// <summary>
         /// Adds a new member and persists it.
         /// </summary>
-        /// <param name="entidade">Member entity to add.</param>
+        /// <param name="entity">Member entity to add.</param>
         /// <returns>The added entity with generated values (e.g. Id).</returns>
-        public async Task<Member> AddAsync(Member entidade)
+        public async Task<Member> AddAsync(Member entity)
         {
-            _context.Add(entidade);
+            _context.Add(entity);
             await _context.SaveChangesAsync();
 
-            return entidade;
+            return entity;
         }
 
         /// <summary>
         /// Updates an existing member and persists changes.
         /// </summary>
-        /// <param name="entidade">Member entity to update.</param>
+        /// <param name="entity">Member entity to update.</param>
         /// <returns>The updated entity.</returns>
-        public async Task<Member> UpdateAsync(Member entidade)
+        public async Task<Member> UpdateAsync(Member entity)
         {
-            _context.Update(entidade);
+            _context.Update(entity);
             await _context.SaveChangesAsync();
 
-            return entidade;
+            return entity;
         }
 
         /// <summary>
         /// Removes a member and persists the deletion.
         /// </summary>
-        /// <param name="entidade">Member entity to remove.</param>
+        /// <param name="entity">Member entity to remove.</param>
         /// <returns>The removed entity.</returns>
-        public async Task<Member> DeleteAsync(Member entidade)
+        public async Task<Member> DeleteAsync(Member entity)
         {
-            _context.Remove(entidade);
+            _context.Remove(entity);
             await _context.SaveChangesAsync();
 
-            return entidade;
+            return entity;
         }
 
         /// <summary>

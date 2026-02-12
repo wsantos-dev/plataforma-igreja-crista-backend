@@ -46,8 +46,8 @@ namespace PlataformaRedencao.Application.Services
         /// </summary>
         public async Task Add(AddressDTO AddressDTO)
         {
-            var entidade = _mapper.Map<Address>(AddressDTO);
-            await _addressRepository.AddAsync(entidade);
+            var entity = _mapper.Map<Address>(AddressDTO);
+            await _addressRepository.AddAsync(entity);
         }
 
         /// <summary>
@@ -55,8 +55,8 @@ namespace PlataformaRedencao.Application.Services
         /// </summary>
         public async Task Update(AddressDTO AddressDTO)
         {
-            var entidade = _mapper.Map<Address>(AddressDTO);
-            await _addressRepository.UpdateAsync(entidade);
+            var entity = _mapper.Map<Address>(AddressDTO);
+            await _addressRepository.UpdateAsync(entity);
         }
 
         /// <summary>
@@ -64,11 +64,11 @@ namespace PlataformaRedencao.Application.Services
         /// </summary>
         public async Task Remove(int? id)
         {
-            var entidade = await _addressRepository.GetByIdAsync(id);
-            if (entidade is null)
+            var entity = await _addressRepository.GetByIdAsync(id);
+            if (entity is null)
                 return;
 
-            await _addressRepository.DeleteAsync(entidade);
+            await _addressRepository.DeleteAsync(entity);
         }
     }
 }

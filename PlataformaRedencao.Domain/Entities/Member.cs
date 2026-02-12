@@ -4,114 +4,112 @@ using PlataformaRedencao.Domain.Enums;
 namespace PlataformaRedencao.Domain.Entities
 {
     /// <summary>
-    /// Representa um membro da igreja.
+    /// Represents a church member.
     /// </summary>
     /// <remarks>
-    /// Esta classe concentra todos os dados de identificação pessoal,
-    /// contato, situação e histórico eclesiástico.
-    /// Um membro é um cidadão registrado (CPF), com nome, contato, endereço,
-    /// profissão e demais informações civis, além de dados específicos
-    /// relacionados à igreja, como data de admissão, tipo de admissão e situação.
+    /// This class holds all personal identification, contact, status and church history data.
+    /// A member is a registered citizen (CPF), with name, contact, address, profession and other
+    /// civil information, plus church-specific data such as admission date, admission type and status.
     /// </remarks>
     public sealed class Member : BaseEntity
     {
         private Member() { }
 
         /// <summary>
-        /// CPF da pessoa.
+        /// Person's CPF (Brazilian tax ID).
         /// </summary>
         public Cpf? Cpf { get; private set; }
 
         /// <summary>
-        /// Nome completo da pessoa.
+        /// Person's full name.
         /// </summary>
         public PersonName? FullName { get; private set; }
 
         /// <summary>
-        /// Data de nascimento da pessoa.
+        /// Person's birth date.
         /// </summary>
         public DateOnly BirthDate { get; private set; }
 
         /// <summary>
-        /// Sexo da pessoa.
+        /// Person's gender.
         /// </summary>
         public Gender? Gender { get; private set; }
 
         /// <summary>
-        /// Informações de contato da pessoa.
+        /// Person's contact information.
         /// </summary>
         public Contact? Contact { get; private set; }
 
         /// <summary>
-        /// Estado civil da pessoa.
+        /// Person's marital status.
         /// </summary>
         public MaritalStatus MaritalStatus { get; private set; }
 
         /// <summary>
-        /// Grau de escolaridade da pessoa.
+        /// Person's education level.
         /// </summary>
         public EducationLevel EducationLevel { get; private set; }
 
         /// <summary>
-        /// Profissão exercida pela pessoa.
+        /// Person's profession.
         /// </summary>
         public Profession? Profession { get; private set; }
 
         /// <summary>
-        /// Identificador da profissão.
+        /// Profession identifier.
         /// </summary>
         public int ProfessionId { get; private set; }
 
         /// <summary>
-        /// Identificador do endereço.
+        /// Address identifier.
         /// </summary>
         public int AddressId { get; private set; }
 
         /// <summary>
-        /// Endereço da pessoa.
+        /// Person's address.
         /// </summary>
         public Address? Address { get; private set; }
 
         /// <summary>
-        /// Identificador da igreja à qual o membro pertence.
+        /// Identifier of the church the member belongs to.
         /// </summary>
         /// <remarks>
-        /// Chave estrangeira para a entidade <see cref="Church"/>.
+        /// Foreign key to <see cref="Church"/>.
         /// </remarks>
         public int ChurchId { get; private set; }
 
         /// <summary>
-        /// Igreja à qual o membro está vinculado.
+        /// Church the member is linked to.
         /// </summary>
         public Church? Church { get; private set; }
 
         /// <summary>
-        /// Data de admissão do membro na igreja.
+        /// Member's church admission date.
         /// </summary>
         public DateOnly AdmissionDate { get; private set; }
 
         /// <summary>
-        /// Tipo de admissão do membro.
+        /// Member's admission type.
         /// </summary>
         public MemberAdmissionType AdmissionType { get; private set; }
 
         /// <summary>
-        /// Situação atual do membro na igreja.
+        /// Current member status in the church.
         /// </summary>
         public MemberStatus Status { get; private set; }
 
         /// <summary>
-        /// Data de criação do cadastro do Membro.
+        /// Member record creation timestamp.
         /// </summary>
         public DateTimeOffset CreatedAt { get; private set; }
 
         /// <summary>
-        /// Data da última atualização do cadastro do Membro.
+        /// Last update timestamp of the member record.
         /// </summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
 
         /// <summary>
-        /// Fábrica para criar um novo membro.
+        /// Factory to create a new member.
         /// </summary>
         public static Member Create(
             Cpf cpf,
@@ -148,7 +146,7 @@ namespace PlataformaRedencao.Domain.Entities
         }
 
         /// <summary>
-        /// Atualiza os dados do membro.
+        /// Updates the member data.
         /// </summary>
         public void UpdateMember(
             DateOnly admissionDate,

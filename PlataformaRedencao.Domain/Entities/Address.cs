@@ -3,84 +3,84 @@ using PlataformaRedencao.Domain.Enums;
 namespace PlataformaRedencao.Domain.Entities
 {
     /// <summary>
-    /// Representa um endereço genérico associado a qualquer entidade do domínio,
-    /// mantendo histórico de vigência e indicando se é o endereço atual.
+    /// Represents a generic address associated with any domain entity,
+    /// with validity history and an indicator for the current address.
     /// </summary>
     /// <remarks>
-    /// A entidade <see cref="Address"/> pode ser associada a diferentes tipos de entidades,
-    /// como Membro, Igreja, Pessoa ou Visitante, utilizando <see cref="EntityAddressType"/>.
-    /// Possui controle de vigência, permitindo registrar períodos em que o endereço foi válido.
+    /// <see cref="Address"/> can be associated with different entity types,
+    /// such as Member, Church, Person or Visitor, via <see cref="EntityAddressType"/>.
+    /// Supports validity tracking to record periods when the address was valid.
     /// </remarks>
     public sealed class Address : BaseEntity
     {
         /// <summary>
-        /// Identificador da entidade dona do endereço.
+        /// Identifier of the entity that owns this address.
         /// </summary>
         /// <remarks>
-        /// Representa a chave da entidade que possui este endereço.
+        /// Represents the key of the entity that owns this address.
         /// </remarks>
         public int EntityId { get; private set; }
 
         /// <summary>
-        /// Tipo da entidade dona do endereço.
+        /// Type of the entity that owns this address.
         /// </summary>
         /// <remarks>
-        /// Define a classificação da entidade dona do endereço, como Membro, Igreja, Pessoa ou Visitante.
+        /// Classifies the owning entity, e.g. Member, Church, Person or Visitor.
         /// </remarks>
         public EntityAddressType EntityType { get; private set; }
 
         /// <summary>
-        /// Logradouro do endereço.
+        /// Street name and type (e.g. street, avenue).
         /// </summary>
         public string? Street { get; private set; }
 
         /// <summary>
-        /// Número do endereço.
+        /// Street or building number.
         /// </summary>
         public string? Number { get; private set; }
 
         /// <summary>
-        /// Complemento do endereço.
+        /// Address complement (e.g. apartment, suite).
         /// </summary>
         public string? Complement { get; private set; }
 
         /// <summary>
-        /// Bairro do endereço.
+        /// Neighborhood or district.
         /// </summary>
         public string? Neighborhood { get; private set; }
 
         /// <summary>
-        /// Cidade do endereço.
+        /// City.
         /// </summary>
         public string? City { get; private set; }
 
         /// <summary>
-        /// Estado do endereço.
+        /// State or province.
         /// </summary>
         public string? State { get; private set; }
 
         /// <summary>
-        /// País do endereço.
+        /// Country.
         /// </summary>
         public string? Country { get; private set; }
 
         /// <summary>
-        /// Código postal do endereço.
+        /// Postal or ZIP code.
         /// </summary>
         public string? PostalCode { get; private set; }
 
         /// <summary>
-        /// Inicializa um novo endereço associado a uma entidade do domínio.
+        /// Initializes a new address associated with a domain entity.
         /// </summary>
-        /// <param name="entityId">Identificador da entidade dona do endereço.</param>
-        /// <param name="entityType">Tipo da entidade dona do endereço.</param>
-        /// <param name="street">Logradouro do endereço.</param>
-        /// <param name="complement">Complemento do endereço.</param>
-        /// <param name="number">Número do endereço.</param>
-        /// <param name="city">Cidade do endereço.</param>
-        /// <param name="state">Estado do endereço.</param>
-        /// <param name="country">País do endereço.</param>
-        /// <param name="postalCode">Código postal do endereço.</param>
+        /// <param name="entityId">Identifier of the entity that owns the address.</param>
+        /// <param name="entityType">Type of the entity that owns the address.</param>
+        /// <param name="street">Street name.</param>
+        /// <param name="complement">Address complement.</param>
+        /// <param name="number">Street or building number.</param>
+        /// <param name="city">City.</param>
+        /// <param name="state">State or province.</param>
+        /// <param name="country">Country.</param>
+        /// <param name="postalCode">Postal or ZIP code.</param>
         public Address(
             int entityId,
             EntityAddressType entityType,

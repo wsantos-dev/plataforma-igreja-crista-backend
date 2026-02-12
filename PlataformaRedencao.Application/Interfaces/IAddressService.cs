@@ -11,15 +11,20 @@ namespace PlataformaRedencao.Application.Interfaces
         Task<IReadOnlyCollection<AddressDTO>> GetAddressAsync();
 
         /// <summary>Gets an address by id.</summary>
+        /// <param name="id">Address id (nullable).</param>
+        /// <returns>The address DTO or default if not found.</returns>
         Task<AddressDTO> GetById(int? id);
 
         /// <summary>Adds a new address.</summary>
-        Task Add(AddressDTO enderecoDTO);
+        /// <param name="addressDTO">Address data to add.</param>
+        Task Add(AddressDTO addressDTO);
 
         /// <summary>Updates an existing address.</summary>
-        Task Update(AddressDTO enderecoDTO);
+        /// <param name="addressDTO">Address data to update.</param>
+        Task Update(AddressDTO addressDTO);
 
         /// <summary>Removes an address by id.</summary>
+        /// <param name="id">Address id (nullable).</param>
         Task Remove(int? id);
     }
 }

@@ -7,8 +7,12 @@ using PlataformaRedencao.Application.Security;
 
 namespace PlataformaRedencao.Infra.IoC.Security
 {
+    /// <summary>
+    /// Generates cryptographically secure refresh token values using random bytes.
+    /// </summary>
     public class RefreshTokenGenerator : IRefreshTokenGenerator
     {
+        /// <inheritdoc />
         public string Generate()
         {
             var bytes = RandomNumberGenerator.GetBytes(64);

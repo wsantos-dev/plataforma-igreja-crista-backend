@@ -3,89 +3,88 @@ using PlataformaRedencao.Domain.Enums;
 namespace PlataformaRedencao.Domain.Entities
 {
     /// <summary>
-    /// Aggregate Root que representa uma Igreja Evangélica
-    /// dentro do domínio da Plataforma Redenção.
+    /// Aggregate root representing a church within the platform domain.
     /// </summary>
     /// <remarks>
-    /// A entidade <see cref="Church"/> concentra os dados oficiais de uma igreja,
-    /// incluindo informações civis, contato, liderança e endereço principal.
+    /// <see cref="Church"/> holds the official church data, including civil information,
+    /// contact, leadership and main address.
     /// </remarks>
     public sealed class Church : BaseEntity
     {
         /// <summary>
-        /// Nome oficial da igreja.
+        /// Official name of the church.
         /// </summary>
         public string OfficialName { get; private set; }
 
         /// <summary>
-        /// Nome fantasia ou nome curto utilizado publicamente.
+        /// Trade name or short name used publicly.
         /// </summary>
         public string TradeName { get; private set; }
 
         /// <summary>
-        /// Denominação à qual a igreja pertence.
+        /// Denomination the church belongs to.
         /// </summary>
         public string? Denomination { get; private set; }
 
         /// <summary>
-        /// Pastor presidente ou líder principal da igreja.
+        /// Lead pastor or main leader of the church.
         /// </summary>
         public string LeadPastor { get; private set; }
 
         /// <summary>
-        /// Data de fundação da igreja.
+        /// Church foundation date.
         /// </summary>
         public DateOnly FoundationDate { get; private set; }
 
         /// <summary>
-        /// Número de registro legal da igreja (CNPJ).
+        /// Legal registration number of the church (CNPJ).
         /// </summary>
         public string Cnpj { get; private set; }
 
         /// <summary>
-        /// E-mail institucional da igreja.
+        /// Institutional email of the church.
         /// </summary>
         public string Email { get; private set; }
 
         /// <summary>
-        /// Site oficial da igreja.
+        /// Official website of the church.
         /// </summary>
         public string Website { get; private set; }
 
         /// <summary>
-        /// Data de criação do registro da igreja no sistema.
+        /// Church record creation timestamp in the system.
         /// </summary>
         public DateTimeOffset CreatedAt { get; private set; }
 
         /// <summary>
-        /// Data da última atualização do cadastro da igreja.
+        /// Last update timestamp of the church record.
         /// </summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
 
         /// <summary>
-        /// FK para o endereço principal da igreja.
+        /// Foreign key to the church's main address.
         /// </summary>
         /// <remarks>
-        /// Representa a referência ao endereço principal da igreja, armazenado na entidade <see cref="Address"/>.
+        /// References the main address stored in <see cref="Address"/>.
         /// </remarks>
         public int? AddressId { get; private set; }
 
         /// <summary>
-        /// Referência de navegação para o endereço.
+        /// Navigation reference to the address.
         /// </summary>
         public Address? Address { get; private set; }
 
         /// <summary>
-        /// Cria uma nova instância de igreja com os dados essenciais.
+        /// Creates a new church instance with the essential data.
         /// </summary>
-        /// <param name="officialName">Nome oficial da igreja.</param>
-        /// <param name="tradeName">Nome fantasia ou abreviado da igreja.</param>
-        /// <param name="denomination">Denominação religiosa da igreja.</param>
-        /// <param name="leadPastor">Pastor presidente ou líder principal.</param>
-        /// <param name="foundationDate">Data de fundação da igreja.</param>
-        /// <param name="cnpj">CNPJ da igreja.</param>
-        /// <param name="email">E-mail institucional.</param>
-        /// <param name="website">Site oficial da igreja.</param>
+        /// <param name="officialName">Official name of the church.</param>
+        /// <param name="tradeName">Trade name or short name of the church.</param>
+        /// <param name="denomination">Religious denomination of the church.</param>
+        /// <param name="leadPastor">Lead pastor or main leader.</param>
+        /// <param name="foundationDate">Church foundation date.</param>
+        /// <param name="cnpj">Church CNPJ.</param>
+        /// <param name="email">Institutional email.</param>
+        /// <param name="website">Official website of the church.</param>
         public Church(
             string officialName,
             string tradeName,
@@ -108,11 +107,11 @@ namespace PlataformaRedencao.Domain.Entities
         }
 
         /// <summary>
-        /// Altera o endereço principal da igreja, definindo a FK para o endereço existente.
+        /// Changes the church's main address by setting the FK to the given address.
         /// </summary>
-        /// <param name="address">Endereço existente a ser vinculado como principal.</param>
+        /// <param name="address">Existing address to be set as the main one.</param>
         /// <remarks>
-        /// Atualiza a referência de navegação e a FK <see cref="AddressId"/>.
+        /// Updates the navigation reference and <see cref="AddressId"/>.
         /// </remarks>
         public void ChangeAddress(Address address)
         {

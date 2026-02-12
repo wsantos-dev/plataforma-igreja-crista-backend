@@ -40,7 +40,7 @@ public static class DependencyInjection
         services.AddScoped<IProfissionService, ProfissaoService>();
         services.AddScoped<IAddressService, AddressService>();
 
-        // Segurança
+        // Security
         services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
         services.AddScoped<AuthService>();
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();

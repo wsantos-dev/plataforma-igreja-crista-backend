@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../PlataformaRedencao.Config/PlataformaRedencao.Config.csproj" />
     <ProjectReference Include="../PlataformaRedencao.Domain/PlataformaRedencao.Domain.csproj" />
     <ProjectReference Include="../PlataformaRedencao.Infra.Identity/PlataformaRedencao.Infra.Identity.csproj" />
   </ItemGroup>

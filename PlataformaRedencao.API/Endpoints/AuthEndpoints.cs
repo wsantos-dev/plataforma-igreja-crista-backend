@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
+using PlataformaRedencao.Application.Exceptions;
+using PlataformaRedencao.Domain.Messages;
 using PlataformaRedencao.Infra.Identity.Entities;
 
 namespace PlataformaRedencao.API.Endpoints;
@@ -7,22 +9,20 @@ namespace PlataformaRedencao.API.Endpoints;
 public static class AuthEndpoints
 {
 
-    public record RegisterRequest(string Email, string Password, string? MemberId);
+    public record RegisterRequest(string Email, string Password);
     public record LoginRequest(string Email, string Password);
 
     public static void MapAuthEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/auth")
-                       .WithTags("Auth")
-                       .RequireAuthorization("AdminOnly");
+                       .WithTags("Auth");
 
         group.MapPost("/register", async (UserManager<ApplicationUser> userManager, RegisterRequest request) =>
         {
             var user = new ApplicationUser
             {
                 UserName = request.Email,
-                Email = request.Email,
-                MemberId = request.MemberId != null ? int.Parse(request.MemberId) : null
+                Email = request.Email
             };
 
             var result = await userManager.CreateAsync(user, request.Password);
@@ -30,7 +30,7 @@ public static class AuthEndpoints
             if (!result.Succeeded)
                 return Results.BadRequest(result.Errors);
 
-            return Results.Ok(new { user.Id, user.Email, user.MemberId });
+            return Results.Ok(new { user.Id, user.Email });
         })
         .WithDisplayName("Register");
 
@@ -39,9 +39,9 @@ public static class AuthEndpoints
             var result = await signInManager.PasswordSignInAsync(request.Email, request.Password, false, true);
 
             if (!result.Succeeded)
-                return Results.BadRequest("Invalid credentials.");
+                throw new UnauthorizedOperationException("UNAUTHORIZED", ErrorMessages.UnauthorizedAccess);
 
-            return Results.Ok("Logged in successfully");
+            return Results.Ok(Messages.LoggedInSucess);
         })
         .WithDisplayName("Login");
     }

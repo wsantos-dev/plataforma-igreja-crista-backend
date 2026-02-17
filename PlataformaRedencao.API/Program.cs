@@ -1,7 +1,10 @@
 using System.Text;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using PlataformaRedencao.API.Endpoints;
-using PlataformaRedencao.Config;
+using PlataformaRedencao.Application.Exceptions;
 using PlataformaRedencao.Domain.Enums;
+using PlataformaRedencao.Domain.Exceptions;
 using PlataformaRedencao.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +16,13 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 // Security
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(AppSettings.JwtKey);
+
+var jwtKey = jwtSettings["Key"];
+
+if (string.IsNullOrWhiteSpace(jwtKey))
+    throw new InvalidOperationException("Jwt:Key não configurada.");
+
+var key = Convert.FromBase64String(jwtKey);
 
 
 builder.Services.AddAuthorization(options =>
@@ -72,11 +81,88 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseExceptionHandler();
+app.UseExceptionHandler(options =>
+{
+    options.Run(async context =>
+    {
+        var exception = context.Features
+            .Get<IExceptionHandlerFeature>()?
+            .Error;
+
+        var problemDetails = exception switch
+        {
+            InvalidUserOrPasswordException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status404NotFound
+            },
+
+            MemberAlreadyExistsException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status409Conflict
+            },
+
+            ChurchNotFoundException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status404NotFound
+            },
+
+            InvalidCpfException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status400BadRequest
+            },
+
+            BusinessRuleValidationException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status400BadRequest
+            },
+
+            EntityNotFoundException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status404NotFound
+            },
+
+            ConflictException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status409Conflict
+            },
+
+            UseCaseValidationException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status400BadRequest
+            },
+
+            UnauthorizedAccessException ex => new ProblemDetails
+            {
+                Title = ex.Message,
+                Status = StatusCodes.Status401Unauthorized
+            },
+
+            _ => new ProblemDetails
+            {
+                Title = "An unexpected error occurred.",
+                Status = StatusCodes.Status500InternalServerError
+            }
+        };
+
+        context.Response.StatusCode = problemDetails.Status!.Value;
+        await context.Response.WriteAsJsonAsync(problemDetails);
+    });
+});
+
 app.MapErrorEndpoints();
 app.MapAdminEndpoints();
 app.MapAuthEndpoints();
 app.MapMembersEndpoints();
+app.MapChurchsEndpoints();
+app.MapAddressEndpoints();
 
 app.Run();
 

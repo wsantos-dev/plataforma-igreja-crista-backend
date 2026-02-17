@@ -15,6 +15,7 @@ namespace PlataformaRedencao.Application.Interfaces
         /// <returns>The address DTO or default if not found.</returns>
         Task<AddressDTO> GetByIdAsync(int? id);
 
+
         /// <summary>Adds a new address.</summary>
         /// <param name="addressDTO">Address data to add.</param>
         Task AddAsync(AddressDTO addressDTO);

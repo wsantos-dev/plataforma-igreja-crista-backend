@@ -11,12 +11,12 @@ namespace PlataformaRedencao.Infra.Data.Context
 
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../PlataformaRedencao.API"))
-                .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile("appsettings.Development.json", optional: true)
                 .AddUserSecrets<PlataformaRedencaoDbContextFactory>()
                 .Build();
 
             var builder = new DbContextOptionsBuilder<PlataformaRedencaoDbContext>();
-            var connectionString = Config.AppSettings.PostgreSqlConnectionString;
+            var connectionString = configuration.GetConnectionString("PostgreSql");
 
 
             builder.UseNpgsql(connectionString);

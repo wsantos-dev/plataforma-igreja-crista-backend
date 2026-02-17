@@ -457,10 +457,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("lockout_end");
 
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("integer")
-                        .HasColumnName("member_id");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)")

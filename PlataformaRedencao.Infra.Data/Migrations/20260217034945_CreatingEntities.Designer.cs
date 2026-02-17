@@ -12,7 +12,7 @@ using PlataformaRedencao.Infra.Data.Context;
 namespace PlataformaRedencao.Infra.Data.Migrations
 {
     [DbContext(typeof(PlataformaRedencaoDbContext))]
-    [Migration("20260215201023_CreatingEntities")]
+    [Migration("20260217034945_CreatingEntities")]
     partial class CreatingEntities
     {
         /// <inheritdoc />
@@ -459,10 +459,6 @@ namespace PlataformaRedencao.Infra.Data.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("lockout_end");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("integer")
-                        .HasColumnName("member_id");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)

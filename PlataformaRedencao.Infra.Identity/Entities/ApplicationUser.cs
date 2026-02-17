@@ -7,6 +7,5 @@ namespace PlataformaRedencao.Infra.Identity.Entities;
 /// </summary>
 public class ApplicationUser : IdentityUser
 {
-    public int? MemberId { get; set; }
 
 }

@@ -24,8 +24,8 @@ public static class DependencyInjection
             .UseSnakeCaseNamingConvention()
         );
 
-        services.AddIdentityCore<ApplicationUser>()
-                .AddRoles<IdentityRole>()
+
+        services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<PlataformaRedencaoDbContext>()
                 .AddDefaultTokenProviders();
 

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Diagnostics;
-using PlataformaRedencao.Domain.Validation;
+using PlataformaIgrejaCrista.Domain.Validation;
 
-namespace PlataformaRedencao.API.Endpoints
+namespace PlataformaIgrejaCrista.API.Endpoints
 {
     /// <summary>
     /// Global error handling endpoint; maps domain and server errors to Problem Details responses.

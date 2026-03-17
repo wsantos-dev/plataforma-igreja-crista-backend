@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PlataformaRedencao.API.Endpoints;
-using PlataformaRedencao.Application.Exceptions;
-using PlataformaRedencao.Domain.Enums;
-using PlataformaRedencao.Domain.Exceptions;
-using PlataformaRedencao.Infra.IoC;
+using PlataformaIgrejaCrista.API.Endpoints;
+using PlataformaIgrejaCrista.Application.Exceptions;
+using PlataformaIgrejaCrista.Domain.Enums;
+using PlataformaIgrejaCrista.Domain.Exceptions;
+using PlataformaIgrejaCrista.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 

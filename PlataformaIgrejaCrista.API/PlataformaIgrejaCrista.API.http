@@ -1,6 +1,6 @@
-@PlataformaRedencao.API_HostAddress = http://localhost:5126
+@PlataformaIgrejaCrista.API_HostAddress = http://localhost:5126
 
-GET {{PlataformaRedencao.API_HostAddress}}/weatherforecast/
+GET {{PlataformaIgrejaCrista.API_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

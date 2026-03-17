@@ -1,8 +1,8 @@
 using System.Security.Claims;
-using PlataformaRedencao.Application.DTOs;
-using PlataformaRedencao.Application.Interfaces;
+using PlataformaIgrejaCrista.Application.DTOs;
+using PlataformaIgrejaCrista.Application.Interfaces;
 
-namespace PlataformaRedencao.API.Endpoints
+namespace PlataformaIgrejaCrista.API.Endpoints
 {
     public static class MembersEndpoints
     {

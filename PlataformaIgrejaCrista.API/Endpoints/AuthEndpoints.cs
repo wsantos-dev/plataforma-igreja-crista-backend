@@ -1,9 +1,9 @@
-using PlataformaRedencao.Application.DTOs;
-using PlataformaRedencao.Application.Interfaces;
-using PlataformaRedencao.Domain.Entities;
+using PlataformaIgrejaCrista.Application.DTOs;
+using PlataformaIgrejaCrista.Application.Interfaces;
+using PlataformaIgrejaCrista.Domain.Entities;
 
 
-namespace PlataformaRedencao.API.Endpoints;
+namespace PlataformaIgrejaCrista.API.Endpoints;
 
 public static class AuthEndpoints
 {

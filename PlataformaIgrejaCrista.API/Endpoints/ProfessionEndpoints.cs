@@ -1,6 +1,6 @@
-using PlataformaRedencao.Application.Interfaces;
+using PlataformaIgrejaCrista.Application.Interfaces;
 
-namespace PlataformaRedencao.API.Endpoints
+namespace PlataformaIgrejaCrista.API.Endpoints
 {
     public static class ProfessionEndpoints
     {

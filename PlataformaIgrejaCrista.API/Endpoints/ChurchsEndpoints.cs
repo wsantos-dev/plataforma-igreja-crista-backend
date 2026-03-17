@@ -1,4 +1,4 @@
-namespace PlataformaRedencao.API.Endpoints
+namespace PlataformaIgrejaCrista.API.Endpoints
 {
     public static class ChurchsEndpoints
     {

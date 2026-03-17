@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../PlataformaRedencao.Application/PlataformaRedencao.Application.csproj" />
-    <ProjectReference Include="../PlataformaRedencao.Infra.IoC/PlataformaRedencao.Infra.IoC.csproj" />
+    <ProjectReference Include="../PlataformaIgrejaCrista.Application/PlataformaIgrejaCrista.Application.csproj" />
+    <ProjectReference Include="../PlataformaIgrejaCrista.Domain/PlataformaIgrejaCrista.Domain.csproj" />
+    <ProjectReference Include="../PlataformaIgrejaCrista.Infra.IoC/PlataformaIgrejaCrista.Infra.IoC.csproj" />
   </ItemGroup>
 
   <ItemGroup>

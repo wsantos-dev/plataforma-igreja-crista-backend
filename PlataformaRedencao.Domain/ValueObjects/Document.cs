@@ -1,4 +1,3 @@
-using System;
 using PlataformaRedencao.Domain.Enums;
 
 namespace PlataformaRedencao.Domain.ValueObjects

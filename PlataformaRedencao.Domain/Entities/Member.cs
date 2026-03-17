@@ -90,7 +90,7 @@ namespace PlataformaRedencao.Domain.Entities
 
         /// <summary>
         /// Member's church admission date.
-        /// </summary>
+        /// </summary>PlataformaRedencao.Application/DTOs/MemberCreationData.cs
         public DateOnly AdmissionDate { get; private set; }
 
         /// <summary>

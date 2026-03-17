@@ -134,7 +134,7 @@ namespace PlataformaRedencao.Domain.Entities
             DomainValidationException.When(string.IsNullOrWhiteSpace(city), "A cidade é obrigatória.");
             DomainValidationException.When(string.IsNullOrWhiteSpace(state), "O estado é obrigatório.");
             DomainValidationException.When(string.IsNullOrWhiteSpace(country), "O país é obrigatório.");
-            DomainValidationException.When(string.IsNullOrWhiteSpace(postalCode), "O CEP/Código Postal é obrigatório.");
+            DomainValidationException.When(string.IsNullOrWhiteSpace(postalCode), "O CEP é obrigatório.");
 
             DomainValidationException.When(street.Length < 3, "O nome da rua é muito curto.");
             DomainValidationException.When(street.Length > 150, "O nome da rua deve ter no máximo 150 caracteres.");

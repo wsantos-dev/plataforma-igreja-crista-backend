@@ -1,6 +1,3 @@
-using System;
-using PlataformaRedencao.Domain.ValueObjects;
-
 namespace PlataformaRedencao.Domain.ValueObjects
 {
     /// <summary>

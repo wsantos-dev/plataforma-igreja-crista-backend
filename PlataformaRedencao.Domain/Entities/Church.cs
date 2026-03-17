@@ -1,5 +1,4 @@
 using System.Text.RegularExpressions;
-using PlataformaRedencao.Domain.Enums;
 using PlataformaRedencao.Domain.Validation;
 using PlataformaRedencao.Domain.ValueObjects;
 

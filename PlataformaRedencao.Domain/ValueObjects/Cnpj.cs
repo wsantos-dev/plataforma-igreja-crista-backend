@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;
-
 namespace PlataformaRedencao.Domain.ValueObjects
 {
     /// <summary>

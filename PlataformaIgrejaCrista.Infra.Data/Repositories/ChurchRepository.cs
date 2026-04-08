@@ -10,13 +10,13 @@ namespace PlataformaIgrejaCrista.Infra.Data.Repositories
     /// </summary>
     public class ChurchRepository : IChurchRepository
     {
-        private readonly PlataformaRedencaoDbContext _context;
+        private readonly PlataformaIgrejaCristaDbContext _context;
 
         /// <summary>
         /// Initializes a new instance of <see cref="ChurchRepository"/>.
         /// </summary>
         /// <param name="context">Database context.</param>
-        public ChurchRepository(PlataformaRedencaoDbContext context)
+        public ChurchRepository(PlataformaIgrejaCristaDbContext context)
         {
             _context = context;
         }

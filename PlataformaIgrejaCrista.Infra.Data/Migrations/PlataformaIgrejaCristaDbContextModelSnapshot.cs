@@ -10,8 +10,8 @@ using PlataformaIgrejaCrista.Infra.Data.Context;
 
 namespace PlataformaIgrejaCrista.Infra.Data.Migrations
 {
-    [DbContext(typeof(PlataformaRedencaoDbContext))]
-    partial class PlataformaRedencaoDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(PlataformaIgrejaCristaDbContext))]
+    partial class PlataformaIgrejaCristaDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -176,7 +176,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.ToTable("asp_net_user_tokens", "auth");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Address", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -245,7 +245,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.ToTable("address", "secretary");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text")
@@ -324,7 +324,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.ToTable("asp_net_users", "auth");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Church", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Church", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -397,7 +397,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.ToTable("church", "secretary");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Member", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Member", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -479,7 +479,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.ToTable("member", "secretary");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Profession", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Profession", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -493,18 +493,18 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                         .HasColumnType("character varying(30)")
                         .HasColumnName("code");
 
-                    b.Property<string>("Term")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)")
-                        .HasColumnName("term");
+                        .HasColumnName("name");
 
                     b.HasKey("Id");
 
                     b.ToTable("profession", "secretary");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.RefreshToken", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -554,7 +554,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -563,7 +563,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -578,7 +578,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlataformaRedencao.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -587,16 +587,16 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Church", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Church", b =>
                 {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Address", "Address")
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -604,33 +604,33 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                     b.Navigation("Address");
                 });
 
-            modelBuilder.Entity("PlataformaRedencao.Domain.Entities.Member", b =>
+            modelBuilder.Entity("PlataformaIgrejaCrista.Domain.Entities.Member", b =>
                 {
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Address", "Address")
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PlataformaRedencao.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.ApplicationUser", null)
                         .WithOne()
-                        .HasForeignKey("PlataformaRedencao.Domain.Entities.Member", "ApplicationUserId")
+                        .HasForeignKey("PlataformaIgrejaCrista.Domain.Entities.Member", "ApplicationUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Church", "Church")
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.Church", "Church")
                         .WithMany()
                         .HasForeignKey("ChurchId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PlataformaRedencao.Domain.Entities.Profession", "Profession")
+                    b.HasOne("PlataformaIgrejaCrista.Domain.Entities.Profession", "Profession")
                         .WithMany()
                         .HasForeignKey("ProfessionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.OwnsOne("PlataformaRedencao.Domain.ValueObjects.Contact", "Contact", b1 =>
+                    b.OwnsOne("PlataformaIgrejaCrista.Domain.ValueObjects.Contact", "Contact", b1 =>
                         {
                             b1.Property<int>("MemberId")
                                 .HasColumnType("integer");
@@ -654,7 +654,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                                 .HasForeignKey("MemberId");
                         });
 
-                    b.OwnsOne("PlataformaRedencao.Domain.ValueObjects.PersonName", "FullName", b1 =>
+                    b.OwnsOne("PlataformaIgrejaCrista.Domain.ValueObjects.PersonName", "FullName", b1 =>
                         {
                             b1.Property<int>("MemberId")
                                 .HasColumnType("integer");

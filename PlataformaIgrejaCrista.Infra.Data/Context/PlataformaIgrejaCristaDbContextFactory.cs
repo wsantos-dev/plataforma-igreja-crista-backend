@@ -4,25 +4,25 @@ using Microsoft.Extensions.Configuration;
 
 namespace PlataformaIgrejaCrista.Infra.Data.Context
 {
-    public class PlataformaRedencaoDbContextFactory : IDesignTimeDbContextFactory<PlataformaRedencaoDbContext>
+    public class PlataformaIgrejaCristaDbContextFactory : IDesignTimeDbContextFactory<PlataformaIgrejaCristaDbContext>
     {
-        public PlataformaRedencaoDbContext CreateDbContext(string[] args)
+        public PlataformaIgrejaCristaDbContext CreateDbContext(string[] args)
         {
 
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../PlataformaRedencao.API"))
+                .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../PlataformaIgrejaCrista.API"))
                 .AddJsonFile("appsettings.Development.json", optional: true)
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddEnvironmentVariables()
                 .Build();
 
-            var builder = new DbContextOptionsBuilder<PlataformaRedencaoDbContext>();
+            var builder = new DbContextOptionsBuilder<PlataformaIgrejaCristaDbContext>();
             var connectionString = configuration.GetConnectionString("PostgreSql");
 
 
             builder.UseNpgsql(connectionString);
 
-            return new PlataformaRedencaoDbContext(builder.Options);
+            return new PlataformaIgrejaCristaDbContext(builder.Options);
         }
     }
 }

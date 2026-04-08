@@ -6,9 +6,9 @@ using PlataformaIgrejaCrista.Infra.Data.Constants;
 
 namespace PlataformaIgrejaCrista.Infra.Data.Context
 {
-    public class PlataformaRedencaoDbContext : IdentityDbContext<ApplicationUser>
+    public class PlataformaIgrejaCristaDbContext : IdentityDbContext<ApplicationUser>
     {
-        public PlataformaRedencaoDbContext(DbContextOptions<PlataformaRedencaoDbContext> options)
+        public PlataformaIgrejaCristaDbContext(DbContextOptions<PlataformaIgrejaCristaDbContext> options)
             : base(options)
         { }
 
@@ -34,7 +34,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Context
             modelBuilder.Entity<IdentityUserToken<string>>().ToTable("asp_net_user_tokens", Schemas.Auth);
 
             modelBuilder.ApplyConfigurationsFromAssembly(
-                typeof(PlataformaRedencaoDbContext).Assembly
+                typeof(PlataformaIgrejaCristaDbContext).Assembly
             );
 
             foreach (var entity in modelBuilder.Model.GetEntityTypes())

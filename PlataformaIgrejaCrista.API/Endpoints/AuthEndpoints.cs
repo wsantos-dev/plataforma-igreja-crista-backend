@@ -9,7 +9,7 @@ public static class AuthEndpoints
     public static void MapAuthEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/auth")
-                       .WithTags("Auth");
+                       .WithTags("Authentication");
 
         group.MapGet("/users", async (IIdentityService identityService) =>
         {

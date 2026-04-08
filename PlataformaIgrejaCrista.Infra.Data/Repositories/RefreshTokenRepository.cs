@@ -10,9 +10,9 @@ namespace PlataformaIgrejaCrista.Infra.Data.Repositories
     /// </summary>
     public sealed class RefreshTokenRepository : IRefreshTokenRepository
     {
-        private readonly PlataformaRedencaoDbContext _context;
+        private readonly PlataformaIgrejaCristaDbContext _context;
 
-        public RefreshTokenRepository(PlataformaRedencaoDbContext context)
+        public RefreshTokenRepository(PlataformaIgrejaCristaDbContext context)
         {
             _context = context;
         }

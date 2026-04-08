@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PlataformaIgrejaCrista.Infra.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialEntities : Migration
+    public partial class Migration001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -89,7 +89,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    term = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     code = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: true)
                 },
                 constraints: table =>

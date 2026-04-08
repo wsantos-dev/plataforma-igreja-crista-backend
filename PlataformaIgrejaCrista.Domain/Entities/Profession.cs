@@ -21,11 +21,11 @@ namespace PlataformaIgrejaCrista.Domain.Entities
         /// </summary>
         public string? Code { get; private set; }
 
-        public Profession(int id, string term)
+        public Profession(int id, string name)
         {
-            ValidateDomain(term);
+            ValidateDomain(name);
 
-            Name = term.Trim();
+            Name = name.Trim();
         }
 
         private void ValidateDomain(string term)

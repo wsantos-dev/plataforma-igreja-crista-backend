@@ -15,10 +15,10 @@ public static class DependencyInjection
        this IServiceCollection services,
        IConfiguration configuration)
     {
-        services.AddDbContext<PlataformaRedencaoDbContext>(options =>
+        services.AddDbContext<PlataformaIgrejaCristaDbContext>(options =>
                options.UseNpgsql(
                    configuration.GetConnectionString("PostgreSql"),
-                   p => p.MigrationsAssembly(typeof(PlataformaRedencaoDbContext)
+                   p => p.MigrationsAssembly(typeof(PlataformaIgrejaCristaDbContext)
                    .Assembly.FullName)
                 )
             .UseSnakeCaseNamingConvention()
@@ -26,7 +26,7 @@ public static class DependencyInjection
 
 
         services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<PlataformaRedencaoDbContext>()
+                .AddEntityFrameworkStores<PlataformaIgrejaCristaDbContext>()
                 .AddDefaultTokenProviders();
 
         services.AddScoped<IHashingService, Sha256HashingService>();

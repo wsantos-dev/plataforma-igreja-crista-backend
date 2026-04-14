@@ -56,12 +56,12 @@ namespace PlataformaIgrejaCrista.Domain.Entities
         /// <summary>
         /// Church record creation timestamp in the system.
         /// </summary>
-        public DateTimeOffset CreatedAt { get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
         /// <summary>
-        /// Last update timestamp of the church record.
+        /// Last update time of the church record.
         /// </summary>
-        public DateTimeOffset? UpdatedAt { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
 
         /// <summary>
         /// Foreign key to the church's main address.
@@ -117,7 +117,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
             Cnpj = new Cnpj(cnpj);
             Email = email;
             Website = website;
-            CreatedAt = DateTimeOffset.UtcNow;
+            CreatedAt = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
         {
             AddressId = address.Id;
             Address = address;
-            UpdatedAt = DateTimeOffset.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
         }
 
         // Método privado ou público dependendo se você usa ele externamente (ex: em um Update)

@@ -22,7 +22,7 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
     public void Configure(EntityTypeBuilder<Member> builder)
     {
         // Maps the entity to the "member" table within the "secretary" schema.
-        builder.ToTable("member", Schemas.Secretary);
+        builder.ToTable("Member", Schemas.Secretary);
 
         // Primary Key configuration.
         builder.HasKey(m => m.Id);
@@ -45,15 +45,12 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
         {
             fullname.Property(n => n.FirstName)
                 .HasMaxLength(100)
-                .HasColumnName("first_name")
                 .IsRequired();
 
             fullname.Property(n => n.MiddleName)
-                .HasMaxLength(100)
-                .HasColumnName("middle_name");
+                .HasMaxLength(100);
 
             fullname.Property(n => n.LastName)
-                .HasColumnName("last_name")
                 .HasMaxLength(150)
                 .IsRequired();
         });
@@ -62,7 +59,6 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
         // BirthDate
         // =============================
         builder.Property(m => m.BirthDate)
-            .HasColumnType("date")
             .IsRequired();
 
         // =============================
@@ -80,7 +76,6 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
         builder.OwnsOne(m => m.Contact, contact =>
         {
             contact.Property(c => c.EmailAddress)
-                .HasColumnName("email_address")
                 .HasMaxLength(255)
                 .HasConversion(
                     v => v!.Address,
@@ -88,7 +83,6 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
                 .IsRequired();
 
             contact.Property(c => c.PhoneNumber)
-                .HasColumnName("phone_number")
                 .HasMaxLength(20)
                 .HasConversion(
                     v => v!.Number,
@@ -118,7 +112,6 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
         // AdmissionDate
         // =============================
         builder.Property(m => m.AdmissionDate)
-            .HasColumnType("date")
             .IsRequired();
 
         // =============================
@@ -153,11 +146,9 @@ public class MemberConfiguration : IEntityTypeConfiguration<Member>
         // Auditing
         // =============================
         builder.Property(m => m.CreatedAt)
-            .HasColumnType("timestamptz") // PostgreSQL timestamp with time zone.
             .IsRequired();
 
-        builder.Property(m => m.UpdatedAt)
-            .HasColumnType("timestamptz");
+        builder.Property(m => m.UpdatedAt);
 
         builder.Property(m => m.ApplicationUserId)
                .HasMaxLength(450)

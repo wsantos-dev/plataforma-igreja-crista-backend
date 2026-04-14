@@ -20,7 +20,7 @@ public class ChurchConfiguration : IEntityTypeConfiguration<Church>
     public void Configure(EntityTypeBuilder<Church> builder)
     {
         // Maps the entity to the "church" table within the "secretary" schema.
-        builder.ToTable("church", Schemas.Secretary);
+        builder.ToTable("Church", Schemas.Secretary);
 
         // Primary Key configuration.
         builder.HasKey(c => c.Id);
@@ -61,11 +61,9 @@ public class ChurchConfiguration : IEntityTypeConfiguration<Church>
 
         // Auditing fields.
         builder.Property(c => c.CreatedAt)
-            .HasColumnType("timestamptz") // PostgreSQL timestamp with time zone.
             .IsRequired();
 
-        builder.Property(c => c.UpdatedAt)
-            .HasColumnType("timestamptz");
+        builder.Property(c => c.UpdatedAt);
 
         // Optional foreign key reference to Address.
         builder.Property(c => c.AddressId)
@@ -74,6 +72,6 @@ public class ChurchConfiguration : IEntityTypeConfiguration<Church>
         builder.HasOne(c => c.Address)
             .WithMany()
             .HasForeignKey(c => c.AddressId)
-            .OnDelete(DeleteBehavior.Restrict); // Prevents cascade delete.
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

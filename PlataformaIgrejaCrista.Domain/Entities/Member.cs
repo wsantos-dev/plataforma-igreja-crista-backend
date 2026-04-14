@@ -106,15 +106,12 @@ namespace PlataformaIgrejaCrista.Domain.Entities
         /// <summary>
         /// Member record creation timestamp.
         /// </summary>
-        public DateTimeOffset CreatedAt { get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
         /// <summary>
-        /// Last update timestamp of the member record.
+        /// Last update time of the member record.
         /// </summary>
-        public DateTimeOffset? UpdatedAt { get; private set; }
-
-
-
+        public DateTime? UpdatedAt { get; private set; }
 
         private Member(
             Cpf cpf,
@@ -253,7 +250,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
             AdmissionDate = admissionDate;
             AdmissionType = admissionType;
             Status = status;
-            UpdatedAt = DateTimeOffset.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
         }
     }
 }

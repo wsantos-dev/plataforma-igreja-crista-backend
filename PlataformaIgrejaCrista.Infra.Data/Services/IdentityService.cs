@@ -87,7 +87,7 @@ public class IdentityService : IIdentityService
             user.Id,
             rawRefreshToken,
             _hashingService,
-            DateTimeOffset.UtcNow.AddDays(7));
+            DateTime.Now.AddDays(7));
 
         await _refreshTokenRepository.AddAsync(refreshTokenEntity);
         await _refreshTokenRepository.SaveChangesAsync();

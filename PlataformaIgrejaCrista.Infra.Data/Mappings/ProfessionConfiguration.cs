@@ -20,7 +20,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Mappings
               public void Configure(EntityTypeBuilder<Profession> builder)
               {
                      // Maps the entity to the "profession" table within the "secretary" schema.
-                     builder.ToTable("profession", Schemas.Secretary);
+                     builder.ToTable("Profession", Schemas.Secretary);
 
                      // Primary Key configuration.
                      builder.HasKey(p => p.Id);

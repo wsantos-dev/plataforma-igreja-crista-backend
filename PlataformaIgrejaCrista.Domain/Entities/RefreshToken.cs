@@ -16,7 +16,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
 
         public string UserId { get; private set; } = null!;
 
-        public DateTimeOffset ExpiresAt { get; private set; }
+        public DateTime ExpiresAt { get; private set; }
 
         public bool Revoked { get; private set; }
 
@@ -25,7 +25,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
         private RefreshToken(
             string userId,
             string tokenHash,
-            DateTimeOffset expiresAt)
+            DateTime expiresAt)
         {
             Id = Guid.NewGuid();
             UserId = userId;
@@ -38,7 +38,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
             string userId,
             string rawToken,
             IHashingService hashingService,
-            DateTimeOffset expiresAt)
+            DateTime expiresAt)
         {
             var hash = hashingService.ComputeSha256(rawToken);
 
@@ -58,7 +58,7 @@ namespace PlataformaIgrejaCrista.Domain.Entities
 
         public bool IsValid()
         {
-            return !Revoked && DateTimeOffset.UtcNow <= ExpiresAt;
+            return !Revoked && DateTime.UtcNow <= ExpiresAt;
         }
     }
 }

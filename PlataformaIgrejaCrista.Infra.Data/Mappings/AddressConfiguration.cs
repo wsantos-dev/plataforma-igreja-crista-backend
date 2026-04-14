@@ -20,7 +20,7 @@ namespace PlataformaIgrejaCrista.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<Address> builder)
         {
             // Maps the entity to the "address" table within the "secretary" schema.
-            builder.ToTable("address", Schemas.Secretary);
+            builder.ToTable("Address", Schemas.Secretary);
 
 
             // Primary Key configuration.

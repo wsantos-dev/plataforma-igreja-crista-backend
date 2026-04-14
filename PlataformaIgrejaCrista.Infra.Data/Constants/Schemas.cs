@@ -2,9 +2,9 @@ namespace PlataformaIgrejaCrista.Infra.Data.Constants;
 
 public class Schemas
 {
-    public const string Secretary = "secretary";
-    public const string Finance = "finance";
-    public const string Ministries = "ministries";
-    public const string Auth = "auth";
+    public const string Secretary = "Secretary";
+    public const string Finance = "Finance";
+    public const string Ministries = "Ministries";
+    public const string Auth = "Auth";
 
 }

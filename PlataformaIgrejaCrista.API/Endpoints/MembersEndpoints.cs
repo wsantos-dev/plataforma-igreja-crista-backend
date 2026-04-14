@@ -10,14 +10,12 @@ namespace PlataformaIgrejaCrista.API.Endpoints
         {
             var group = app.MapGroup("/members")
                            .WithTags("Members");
-            //    .RequireAuthorization("MemberWithMinistrie");
 
             group.MapGet("/", async (IMemberService service) =>
             {
                 var members = await service.GetMembersAsync();
                 return Results.Ok(members);
             });
-
 
             group.MapPost("/create", async (
                 CreateMemberRequestDTO request,

@@ -9,32 +9,27 @@ namespace PlataformaIgrejaCrista.Infra.Data.Mappings
        {
               public void Configure(EntityTypeBuilder<RefreshToken> builder)
               {
-                     builder.ToTable("refresh_token", Schemas.Auth);
+                     builder.ToTable("RefreshToken", Schemas.Auth);
 
                      // Primary Key
                      builder.HasKey(rt => rt.Id);
 
                      builder.Property(rt => rt.Id)
-                            .HasColumnName("id")
+
                             .ValueGeneratedOnAdd();
 
                      builder.Property(rt => rt.TokenHash)
-                            .HasColumnName("token_hash")
                             .IsRequired()
                             .HasMaxLength(88);
 
                      builder.Property(rt => rt.UserId)
-                            .HasColumnName("user_id")
                             .IsRequired()
                             .HasMaxLength(450);
 
                      builder.Property(rt => rt.ExpiresAt)
-                            .HasColumnName("expires_at")
-                            .HasColumnType("timestamptz")
                             .IsRequired();
 
                      builder.Property(rt => rt.Revoked)
-                            .HasColumnName("revoked")
                             .IsRequired();
 
                      // Indexes

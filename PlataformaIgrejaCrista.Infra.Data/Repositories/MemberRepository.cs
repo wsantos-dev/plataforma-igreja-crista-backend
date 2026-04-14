@@ -11,13 +11,13 @@ namespace PlataformaIgrejaCrista.Infra.Data.Repositories
     /// </summary>
     public class MemberRepository : IMemberRepository
     {
-        private readonly PlataformaRedencaoDbContext _context;
+        private readonly PlataformaIgrejaCristaDbContext _context;
 
         /// <summary>
         /// Initializes a new instance of <see cref="MemberRepository"/>.
         /// </summary>
         /// <param name="context">Database context.</param>
-        public MemberRepository(PlataformaRedencaoDbContext context)
+        public MemberRepository(PlataformaIgrejaCristaDbContext context)
         {
             _context = context;
         }

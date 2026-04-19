@@ -1,28 +1,39 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using PlataformaIgrejaCrista.API.Endpoints;
 using PlataformaIgrejaCrista.Application.Exceptions;
 using PlataformaIgrejaCrista.Domain.Enums;
 using PlataformaIgrejaCrista.Domain.Exceptions;
 using PlataformaIgrejaCrista.Infra.IoC;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Dependency injection
 builder.Services.AddInfrastructure(builder.Configuration);
 
-
-// Security
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-
 var jwtKey = jwtSettings["Key"];
- 
+
 if (string.IsNullOrWhiteSpace(jwtKey))
     throw new InvalidOperationException("Jwt:Key não configurada.");
 
 var key = Convert.FromBase64String(jwtKey);
 
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new()
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true
+        };
+    });
 
 builder.Services.AddAuthorization(options =>
 {
@@ -33,46 +44,49 @@ builder.Services.AddAuthorization(options =>
     }
 });
 
-
-// Swagger/OpenAPI support
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddOpenApi(options =>
 {
-    c.AddSecurityDefinition("Bearer", new()
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        Name = "Authorization",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Enter: Bearer { your token }"
-    });
+        document.Components ??= new OpenApiComponents();
 
-    c.AddSecurityRequirement(new()
-    {
+        // definição do scheme
+        document?.Components.SecuritySchemes?["Bearer"] = new OpenApiSecurityScheme
         {
-            new()
-            {
-                Reference = new()
-                {
-                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Name = "Authorization",
+            Description = "Bearer {token}"
+        };
+
+        document?.Security ??= new List<OpenApiSecurityRequirement>();
+
+        var requirement = new OpenApiSecurityRequirement();
+
+        var schemeReference = new OpenApiSecuritySchemeReference("Bearer");
+
+        requirement.Add(schemeReference, new List<string>());
+
+        document?.Security?.Add(requirement);
+
+        return Task.CompletedTask;
     });
 });
+
+
 
 // Global error handling
 builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
-// Swagger in development
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
@@ -156,6 +170,7 @@ app.UseExceptionHandler(options =>
     });
 });
 
+// Endpoints
 app.MapAdminEndpoints();
 app.MapAuthEndpoints();
 app.MapMembersEndpoints();
@@ -164,6 +179,5 @@ app.MapAddressEndpoints();
 app.MapProfessionEndpoins();
 
 app.Run();
-
 
 public partial class Program { }
